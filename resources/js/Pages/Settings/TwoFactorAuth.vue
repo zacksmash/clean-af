@@ -40,9 +40,7 @@ const props = computed(() => usePage().props);
                         <input type="text" name="code" required autofocus autocomplete="off" />
                     </div>
 
-                    <button type="submit">
-                        Confirm 2FA code
-                    </button>
+                    <button type="submit">Confirm 2FA code</button>
                 </Form>
 
                 <div>

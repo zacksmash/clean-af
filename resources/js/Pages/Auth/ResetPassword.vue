@@ -15,7 +15,7 @@ defineProps({
 <template>
     <Head title="Reset Password" />
     <div>
-        <Form :action="route('password.update', { token: token })" method="post" #default="{ errors }">
+        <Form :action="route('password.update')" method="post" #default="{ errors }" :transform="(data) => ({ ...data, token, email })" :reset-on-success="['password', 'password_confirmation']">
             <div>
                 <label for="email">Email</label>
                 <input
@@ -27,6 +27,7 @@ defineProps({
                     readonly />
                 <div v-if="errors.email">{{ errors.email }}</div>
             </div>
+
             <div>
                 <label for="password">New Password</label>
                 <input
@@ -38,6 +39,7 @@ defineProps({
                     placeholder="Password" />
                 <div v-if="errors.password">{{ errors.password }}</div>
             </div>
+
             <div>
                 <label for="password_confirmation">Confirm Password</label>
                 <input
@@ -48,8 +50,10 @@ defineProps({
                     placeholder="Confirm password" />
                 <div v-if="errors.password_confirmation">{{ errors.password_confirmation }}</div>
             </div>
+
             <button type="submit">Reset Password</button>
         </Form>
+
         <p>
             Remembered your password? <Link :href="route('login')">Login</Link>
         </p>

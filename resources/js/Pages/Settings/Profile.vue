@@ -14,16 +14,14 @@ const user = computed(() => usePage().props.auth.user);
                 <input type="text" id="name" name="name" :value="user.name" />
                 <div v-if="errors.name">{{ errors.name }}</div>
             </div>
+
             <div>
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" :value="user.email" />
                 <div v-if="errors.email">{{ errors.email }}</div>
             </div>
-            <div>
-                <button type="submit">
-                    Update Profile
-                </button>
-            </div>
+
+            <button type="submit">Update Profile</button>
         </Form>
     </div>
 </template>

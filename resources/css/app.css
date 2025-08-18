@@ -9,3 +9,21 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+@layer components {
+    input:not([type='checkbox']):not([type='radio']) {
+        @apply border border-gray-300 focus:border-blue-500 focus:ring-blue-500 ml-2 h-10 rounded-md px-2;
+    }
+
+    button[type='submit'] {
+        @apply inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150;
+    }
+
+    a[href] {
+        @apply text-blue-500 hover:text-blue-700;
+    }
+
+    hr {
+        @apply border-t border-gray-300 my-4;
+    }
+}

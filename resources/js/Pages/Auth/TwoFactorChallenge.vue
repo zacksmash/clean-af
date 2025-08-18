@@ -30,6 +30,7 @@ const showRecoveryCodeField = ref(false);
                 <div>
                     Please confirm access to your account by entering the authentication code provided by your authenticator application.
                 </div>
+
                 <div>
                     <label>Code</label>
                     <input type="text" name="code" autofocus autocomplete="one-time-code" />
@@ -41,6 +42,7 @@ const showRecoveryCodeField = ref(false);
                 <div>
                     Please confirm access to your account by entering one of your emergency recovery codes.
                 </div>
+
                 <div>
                     <label>Recovery Code</label>
                     <input type="text" name="recovery_code" autocomplete="one-time-code" />
@@ -48,11 +50,7 @@ const showRecoveryCodeField = ref(false);
                 </div>
             </div>
 
-            <div>
-                <button type="submit">
-                    Login
-                </button>
-            </div>
+            <button type="submit">Login</button>
         </Form>
     </div>
 </template>

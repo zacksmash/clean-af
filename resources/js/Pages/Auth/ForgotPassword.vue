@@ -20,11 +20,14 @@ defineProps({
                 <input id="email" type="email" name="email" autocomplete="off" autofocus placeholder="email@example.com" />
                 <div v-if="errors.email">{{ errors.email }}</div>
             </div>
+
             <button type="submit">Send Password Reset Link</button>
         </Form>
+
         <div v-if="status">
             {{ status }}
         </div>
+
         <p>
             Remembered your password? <Link :href="route('login')">Login</Link>
         </p>
