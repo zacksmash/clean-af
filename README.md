@@ -1,4 +1,4 @@
-# clean af 🧼 - A Laravel Starter kit that's clean af
+# clean af 🧼 - A Laravel starter kit that's clean af
 
 - Minimal Tailwind styles, that can be completely removed in the app.css if you want.
 - Uses [Laravel Fortify](https://laravel.com/docs/12.x/fortify) to handle authentication, 2FA, etc.
@@ -19,3 +19,7 @@ Create a new Laravel application using this starter kit through the official [La
 ```bash
 laravel new my-app --using=zacksmash/clean-af
 ```
+
+## Configuration
+
+If you run into errors, you probably need to review the [Laravel Fortify](https://laravel.com/docs/12.x/fortify) docs. This just a frontend starter kit, so nothing is configured for things like 2FA or Email Verification out of the box.
