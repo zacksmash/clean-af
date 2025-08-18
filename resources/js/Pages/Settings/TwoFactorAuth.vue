@@ -1,12 +1,11 @@
 <script setup>
-import {Form, Head, usePage} from '@inertiajs/vue3';
+import {Form, usePage} from '@inertiajs/vue3';
 import { computed } from 'vue';
 
 const props = computed(() => usePage().props);
 </script>
 
 <template>
-    <Head title="Two-Factor Authentication" />
     <div>
         <div v-if="! props.auth.user?.two_factor_secret">
             <Form :action="route('two-factor.enable')" method="post">

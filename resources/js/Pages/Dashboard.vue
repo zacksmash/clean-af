@@ -6,26 +6,34 @@ import Password from '@/Pages/Settings/Password.vue';
 import TwoFactorAuth from '@/Pages/Settings/TwoFactorAuth.vue';
 
 const user = computed(() => usePage().props.auth.user);
+const status = computed(() => usePage().props.status);
+const props = defineProps({
+    canUpdateProfile: Boolean,
+    canUpdatePassword: Boolean,
+    canManageTwoFactorAuthentication: Boolean,
+});
 </script>
 <template>
     <Head title="Dashboard" />
     <div>
-        <div>You are logged in, {{ user?.name }}!</div>
+        <div>Logged in as {{ user?.name }}!</div>
 
         <Form :action="route('logout')" method="post">
             <button type="submit">Logout</button>
         </Form>
 
-        <hr>
-
-        <Profile />
+        <div>{{ status }}</div>
 
         <hr>
 
-        <Password />
+        <Profile v-if="props.canUpdateProfile" />
 
         <hr>
 
-        <TwoFactorAuth />
+        <Password v-if="props.canUpdatePassword" />
+
+        <hr>
+
+        <TwoFactorAuth v-if="props.canManageTwoFactorAuthentication" />
     </div>
 </template>

@@ -14,7 +14,6 @@ const showRecoveryCodeField = ref(false);
 <template>
     <Head title="Two Factor Challenge" />
     <div>
-        <h1>Two Factor Challenge</h1>
         <Form :action="route('two-factor.login')" method="post" #default="{ errors }">
             <div>
                 <button @click.prevent="showCodeField = true; showRecoveryCodeField = false">
