@@ -1,4 +1,4 @@
-# Clean - A Laravel Starter kit that's clean af
+# clean af 🧼 - A Laravel Starter kit that's clean af
 
 - Minimal Tailwind styles, that can be completely removed in the app.css if you want.
 - Uses [Laravel Fortify](https://laravel.com/docs/12.x/fortify) to handle authentication, 2FA, etc.
