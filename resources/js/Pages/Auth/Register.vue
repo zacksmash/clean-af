@@ -1,36 +1,77 @@
 <script setup>
-import { Form, Head, Link } from '@inertiajs/vue3';
-import AuthLayout from '@/Layouts/AuthLayout.vue';
+import { Form, Head, Link } from '@inertiajs/vue3'
 
-defineOptions({
-    layout: AuthLayout
-});
+import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
 
 <template>
-    <Head title="Register" />
-    <div>
-        <Form :action="route('register.store')" method="post" #default="{ errors }" :reset-on-success="['password', 'password_confirmation']">
+    <Head title="Register"/>
+
+    <AuthLayout>
+        <Form
+            v-slot="{ errors }"
+            :action="route('register.store')"
+            method="post"
+            :reset-on-success="['password', 'password_confirmation']"
+        >
             <div>
                 <label for="name">Name</label>
-                <input id="name" type="text" required autofocus :tabindex="1" autocomplete="name" name="name" placeholder="Full name"  />
-                <div v-if="errors.name">{{ errors.name }}</div>
+
+                <input
+                    id="name"
+                    type="text"
+                    required
+                    autofocus
+                    :tabindex="1"
+                    autocomplete="name"
+                    name="name"
+                    placeholder="Full name"
+                >
+
+                <div v-if="errors.name">
+                    <mark>{{ errors.name }}</mark>
+                </div>
             </div>
 
             <div>
                 <label for="email">Email</label>
-                <input id="email" type="email" required :tabindex="2" autocomplete="email" name="email" placeholder="email@example.com" />
-                <div v-if="errors.email">{{ errors.email }}</div>
+
+                <input
+                    id="email"
+                    type="email"
+                    required
+                    :tabindex="2"
+                    autocomplete="email"
+                    name="email"
+                    placeholder="email@example.com"
+                >
+
+                <div v-if="errors.email">
+                    <mark>{{ errors.email }}</mark>
+                </div>
             </div>
 
             <div>
                 <label for="password">Password</label>
-                <input id="password" type="password" required :tabindex="3" autocomplete="new-password" name="password" placeholder="Password" />
-                <div v-if="errors.password">{{ errors.password }}</div>
+
+                <input
+                    id="password"
+                    type="password"
+                    required
+                    :tabindex="3"
+                    autocomplete="new-password"
+                    name="password"
+                    placeholder="Password"
+                >
+
+                <div v-if="errors.password">
+                    <mark>{{ errors.password }}</mark>
+                </div>
             </div>
 
             <div>
                 <label for="password_confirmation">Confirm Password</label>
+
                 <input
                     id="password_confirmation"
                     type="password"
@@ -38,8 +79,12 @@ defineOptions({
                     :tabindex="4"
                     autocomplete="new-password"
                     name="password_confirmation"
-                    placeholder="Confirm password" />
-                <div v-if="errors.password_confirmation">{{ errors.password_confirmation }}</div>
+                    placeholder="Confirm password"
+                >
+
+                <div v-if="errors.password_confirmation">
+                    <mark>{{ errors.password_confirmation }}</mark>
+                </div>
             </div>
 
             <button type="submit">Register</button>
@@ -48,5 +93,5 @@ defineOptions({
         <p>
             Already have an account? <Link :href="route('login')">Login</Link>
         </p>
-    </div>
+    </AuthLayout>
 </template>

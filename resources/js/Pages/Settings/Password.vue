@@ -1,25 +1,56 @@
 <script setup>
-import { Form } from '@inertiajs/vue3';
+import { Form } from '@inertiajs/vue3'
 </script>
 
 <template>
-    <Form :action="route('user-password.update')" method="put" #default="{ errors }" error-bag="updatePassword" reset-on-success :reset-on-error="['password', 'password_confirmation', 'current_password']">
+    <Form
+        v-slot="{ errors }"
+        :action="route('user-password.update')"
+        method="put"
+        error-bag="updatePassword"
+        reset-on-success
+        :reset-on-error="['password', 'password_confirmation', 'current_password']"
+    >
         <div>
             <label for="current_password">Current Password</label>
-            <input type="password" id="current_password" name="current_password" />
-            <div v-if="errors.current_password">{{ errors.current_password }}</div>
+
+            <input
+                id="current_password"
+                type="password"
+                name="current_password"
+            >
+
+            <div v-if="errors.current_password">
+                <mark>{{ errors.current_password }}</mark>
+            </div>
         </div>
 
         <div>
             <label for="password">New Password</label>
-            <input type="password" id="password" name="password" />
-            <div v-if="errors.password">{{ errors.password }}</div>
+
+            <input
+                id="password"
+                type="password"
+                name="password"
+            >
+
+            <div v-if="errors.password">
+                <mark>{{ errors.password }}</mark>
+            </div>
         </div>
 
         <div>
             <label for="password_confirmation">Confirm New Password</label>
-            <input type="password" id="password_confirmation" name="password_confirmation" />
-            <div v-if="errors.password_confirmation">{{ errors.password_confirmation }}</div>
+
+            <input
+                id="password_confirmation"
+                type="password"
+                name="password_confirmation"
+            >
+
+            <div v-if="errors.password_confirmation">
+                <mark>{{ errors.password_confirmation }}</mark>
+            </div>
         </div>
 
         <button type="submit">Change Password</button>

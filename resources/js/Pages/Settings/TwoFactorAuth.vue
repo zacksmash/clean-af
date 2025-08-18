@@ -1,8 +1,8 @@
 <script setup>
-import { computed } from 'vue';
-import { Form, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue'
+import { Form, usePage } from '@inertiajs/vue3'
 
-const props = computed(() => usePage().props);
+const props = computed(() => usePage().props)
 </script>
 
 <template>
@@ -19,16 +19,20 @@ const props = computed(() => usePage().props);
             </Form>
 
             <template v-if="props.status === 'two-factor-authentication-enabled'">
-                <div>
+                <p>
                     Two factor authentication is now enabled. Please finish configuring two factor authentication below.
-                </div>
+                </p>
 
-                <div>
+                <p>
                     Scan the QR code using your phone’s authenticator application, or click it to use an authenticator application on your current device.
-                </div>
+                </p>
 
                 <div>
-                    <a :href="props.twoFactorQrCodeUrl" rel="alternate" aria-label="2FA link">
+                    <a
+                        :href="props.twoFactorQrCodeUrl"
+                        rel="alternate"
+                        aria-label="2FA link"
+                    >
                         <div v-html="props.twoFactorQrCodeSvg"></div>
                     </a>
                 </div>
@@ -36,21 +40,28 @@ const props = computed(() => usePage().props);
                 <Form method="post" :action="route('two-factor.confirm')">
                     <div>
                         <label>Enter current 2FA code from your authenticator application to confirm the setup has been successful.</label>
-                        <input type="text" name="code" required autofocus autocomplete="off" />
+
+                        <input
+                            type="text"
+                            name="code"
+                            required
+                            autofocus
+                            autocomplete="off"
+                        >
                     </div>
 
                     <button type="submit">Confirm 2FA code</button>
                 </Form>
 
-                <div>
+                <p>
                     Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.
-                </div>
+                </p>
             </template>
 
             <template v-if="props.status === 'two-factor-authentication-confirmed'">
-                <div>
+                <p>
                     Two factor authentication confirmed and enabled successfully.
-                </div>
+                </p>
             </template>
 
             <div v-for="code in props.twoFactorRecoveryCodes" :key="code">

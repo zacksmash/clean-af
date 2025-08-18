@@ -1,35 +1,49 @@
 <script setup>
-import { Form, Head, Link } from '@inertiajs/vue3';
-import AuthLayout from '@/Layouts/AuthLayout.vue';
+import { Form, Head, Link } from '@inertiajs/vue3'
 
-defineOptions({
-    layout: AuthLayout
-});
+import AuthLayout from '@/Layouts/AuthLayout.vue'
 
 defineProps({
     status: String,
-});
+})
 </script>
 
 <template>
-    <Head title="Forgot Password" />
-    <div>
-        <Form :action="route('password.email')" method="post" #default="{ errors }" reset-on-success>
+    <Head title="Forgot Password"/>
+
+    <AuthLayout>
+        <Form
+            v-slot="{ errors }"
+            :action="route('password.email')"
+            method="post"
+            reset-on-success
+        >
             <div>
                 <label for="email">Email</label>
-                <input id="email" type="email" name="email" autocomplete="off" autofocus placeholder="email@example.com" />
-                <div v-if="errors.email">{{ errors.email }}</div>
+
+                <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    autocomplete="off"
+                    autofocus
+                    placeholder="email@example.com"
+                >
+
+                <div v-if="errors.email">
+                    <mark>{{ errors.email }}</mark>
+                </div>
             </div>
 
             <button type="submit">Send Password Reset Link</button>
         </Form>
 
         <div v-if="status">
-            {{ status }}
+            <mark>{{ status }}</mark>
         </div>
 
         <p>
             Remembered your password? <Link :href="route('login')">Login</Link>
         </p>
-    </div>
+    </AuthLayout>
 </template>

@@ -1,54 +1,73 @@
 <script setup>
-import { Form, Head, Link } from '@inertiajs/vue3';
-import AuthLayout from '@/Layouts/AuthLayout.vue';
+import { Form, Head, Link } from '@inertiajs/vue3'
 
-defineOptions({
-    layout: AuthLayout
-});
+import AuthLayout from '@/Layouts/AuthLayout.vue'
 
 defineProps({
     token: String,
-    email: String
+    email: String,
 })
 </script>
 
 <template>
-    <Head title="Reset Password" />
-    <div>
-        <Form :action="route('password.update')" method="post" #default="{ errors }" :transform="(data) => ({ ...data, token, email })" :reset-on-success="['password', 'password_confirmation']">
+    <Head title="Reset Password"/>
+
+    <AuthLayout>
+        <Form
+            v-slot="{ errors }"
+            :action="route('password.update')"
+            method="post"
+            :transform="(data) => ({ ...data, token, email })"
+            :reset-on-success="['password', 'password_confirmation']"
+        >
             <div>
                 <label for="email">Email</label>
+
                 <input
                     id="email"
                     type="email"
                     name="email"
                     autocomplete="email"
                     :value="email"
-                    readonly />
-                <div v-if="errors.email">{{ errors.email }}</div>
+                    readonly
+                >
+
+                <div v-if="errors.email">
+                    <mark>{{ errors.email }}</mark>
+                </div>
             </div>
 
             <div>
                 <label for="password">New Password</label>
+
                 <input
                     id="password"
                     type="password"
                     name="password"
                     autocomplete="new-password"
                     autofocus
-                    placeholder="Password" />
-                <div v-if="errors.password">{{ errors.password }}</div>
+                    placeholder="Password"
+                >
+
+                <div v-if="errors.password">
+                    <mark>{{ errors.password }}</mark>
+                </div>
             </div>
 
             <div>
                 <label for="password_confirmation">Confirm Password</label>
+
                 <input
                     id="password_confirmation"
                     type="password"
                     name="password_confirmation"
                     autocomplete="new-password"
-                    placeholder="Confirm password" />
-                <div v-if="errors.password_confirmation">{{ errors.password_confirmation }}</div>
+                    placeholder="Confirm password"
+                >
+
+                <div v-if="errors.password_confirmation">
+                    <mark>{{ errors.password_confirmation }}</mark>
+                </div>
             </div>
 
             <button type="submit">Reset Password</button>
@@ -57,5 +76,5 @@ defineProps({
         <p>
             Remembered your password? <Link :href="route('login')">Login</Link>
         </p>
-    </div>
+    </AuthLayout>
 </template>

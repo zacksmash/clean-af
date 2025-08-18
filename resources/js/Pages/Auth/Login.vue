@@ -1,18 +1,22 @@
 <script setup>
-import { Form, Head, Link } from '@inertiajs/vue3';
-import AuthLayout from '@/Layouts/AuthLayout.vue';
+import { Form, Head, Link } from '@inertiajs/vue3'
 
-defineOptions({
-    layout: AuthLayout
-});
+import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
 
 <template>
-    <Head title="Login" />
-    <div>
-        <Form :action="route('login.store')" :reset-on-success="['password']" method="post" #default="{ errors }">
+    <Head title="Login"/>
+
+    <AuthLayout>
+        <Form
+            v-slot="{ errors }"
+            :action="route('login.store')"
+            :reset-on-success="['password']"
+            method="post"
+        >
             <div>
                 <label for="email">Email</label>
+
                 <input
                     id="email"
                     type="email"
@@ -20,24 +24,39 @@ defineOptions({
                     autofocus
                     :tabindex="1"
                     autocomplete="email"
-                    placeholder="email@example.com" />
-                <div v-if="errors.email">{{ errors.email }}</div>
+                    placeholder="email@example.com"
+                >
+
+                <div v-if="errors.email">
+                    <mark>{{ errors.email }}</mark>
+                </div>
             </div>
 
             <div>
                 <label for="password">Password</label>
+
                 <input
                     id="password"
                     type="password"
                     name="password"
                     :tabindex="2"
                     autocomplete="current-password"
-                    placeholder="Password" />
-                <div v-if="errors.password">{{ errors.password }}</div>
+                    placeholder="Password"
+                >
+
+                <div v-if="errors.password">
+                    <mark>{{ errors.password }}</mark>
+                </div>
             </div>
 
             <div>
-                <input type="checkbox" id="remember" name="remember" :tabindex="3" />
+                <input
+                    id="remember"
+                    type="checkbox"
+                    name="remember"
+                    :tabindex="3"
+                >
+
                 <label for="remember">Remember Me</label>
             </div>
 
@@ -51,5 +70,5 @@ defineOptions({
         <p>
             Don't have an account? <Link :href="route('register')">Register</Link>
         </p>
-    </div>
+    </AuthLayout>
 </template>
