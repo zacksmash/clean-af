@@ -1,8 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 import { Form, usePage } from '@inertiajs/vue3'
 
-const user = computed(() => usePage().props.auth.user)
+import { type User } from '@/Types'
+
+const user = computed(() => usePage().props.auth.user as User)
 </script>
 
 <template>

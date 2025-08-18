@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { Form, Head } from '@inertiajs/vue3'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
-const showCodeField = ref(true)
-const showRecoveryCodeField = ref(false)
+const showCodeField = ref<Boolean>(true)
+const showRecoveryCodeField = ref<Boolean>(false)
 </script>
 
 <template>

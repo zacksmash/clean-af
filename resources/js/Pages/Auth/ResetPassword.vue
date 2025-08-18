@@ -1,12 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import { Form, Head, Link } from '@inertiajs/vue3'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
-defineProps({
-    token: String,
-    email: String,
-})
+defineProps<{
+    token?: string;
+    email?: string;
+}>()
 </script>
 
 <template>

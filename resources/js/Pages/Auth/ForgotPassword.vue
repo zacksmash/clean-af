@@ -1,11 +1,13 @@
-<script setup>
+<script setup lang="ts">
 import { Form, Head, Link } from '@inertiajs/vue3'
+import { store } from '@/Http/actions/Laravel/Fortify/Http/Controllers/PasswordResetLinkController'
+import { login } from '@/Http/routes'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
-defineProps({
-    status: String,
-})
+defineProps<{
+    status?: string;
+}>()
 </script>
 
 <template>
@@ -14,8 +16,7 @@ defineProps({
     <AuthLayout>
         <Form
             v-slot="{ errors }"
-            :action="route('password.email')"
-            method="post"
+            :action="store()"
             reset-on-success
         >
             <div>
@@ -43,7 +44,7 @@ defineProps({
         </div>
 
         <p>
-            Remembered your password? <Link :href="route('login')">Login</Link>
+            Remembered your password? <Link :href="login()">Login</Link>
         </p>
     </AuthLayout>
 </template>

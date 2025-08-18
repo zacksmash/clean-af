@@ -1,11 +1,12 @@
 import js from '@eslint/js'
 import globals from 'globals'
 import pluginVue from 'eslint-plugin-vue'
-import { defineConfig } from 'eslint/config'
 import eslintPluginBetterTailwindcss from 'eslint-plugin-better-tailwindcss'
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
 
-export default defineConfig([
+export default defineConfigWithVueTs([
     pluginVue.configs['flat/essential'],
+    vueTsConfigs.recommended,vueTsConfigs.recommended,
     {
         files: ['resources/js/**/*.{js,mjs,cjs,vue}'],
         plugins: { js, 'better-tailwindcss': eslintPluginBetterTailwindcss },

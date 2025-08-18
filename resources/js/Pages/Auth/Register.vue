@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { Form, Head, Link } from '@inertiajs/vue3'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'

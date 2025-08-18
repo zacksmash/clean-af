@@ -1,12 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import { Form, Head } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
-defineProps({
-    status: String,
-})
+defineProps<{
+    status?: string;
+}>()
 </script>
 
 <template>
