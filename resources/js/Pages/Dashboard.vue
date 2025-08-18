@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
-import { Head, Form, usePage } from '@inertiajs/vue3';
+import { Form, Head, usePage } from '@inertiajs/vue3';
+
 import Profile from '@/Pages/Settings/Profile.vue';
 import Password from '@/Pages/Settings/Password.vue';
 import TwoFactorAuth from '@/Pages/Settings/TwoFactorAuth.vue';

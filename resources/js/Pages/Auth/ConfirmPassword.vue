@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Form } from '@inertiajs/vue3';
+import { Form, Head } from '@inertiajs/vue3';
 import AuthLayout from '@/Layouts/AuthLayout.vue';
 
 defineOptions({
@@ -10,8 +10,6 @@ defineOptions({
 <template>
     <Head title="Confirm Password" />
     <div>
-        <h1>Confirm Password</h1>
-
         <Form :action="route('password.confirm.store')" reset-on-success method="post" #default="{ errors }">
             <div>
                 <label for="password">Password</label>

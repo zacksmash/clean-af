@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+
 import DefaultLayout from '@/Layouts/DefaultLayout.vue';
 
 defineOptions({

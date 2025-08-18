@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Form, Link } from '@inertiajs/vue3';
+import { Form, Head, Link } from '@inertiajs/vue3';
 import AuthLayout from '@/Layouts/AuthLayout.vue';
 
 defineOptions({

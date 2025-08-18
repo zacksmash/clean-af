@@ -1,6 +1,6 @@
 <script setup>
-import {Form, usePage} from '@inertiajs/vue3';
 import { computed } from 'vue';
+import { Form, usePage } from '@inertiajs/vue3';
 
 const props = computed(() => usePage().props);
 </script>
