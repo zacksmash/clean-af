@@ -39,3 +39,8 @@ store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     method: 'post',
 })
 
+const register = {
+    store,
+}
+
+export default register

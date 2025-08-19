@@ -1,4 +1,58 @@
 import { queryParams, type QueryParams } from './../../wayfinder'
+import login from './login'
+/**
+* @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
+* @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:42
+* @route '/two-factor-challenge'
+*/
+export const login = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: login.url(options),
+    method: 'get',
+})
+
+login.definition = {
+    methods: ['get','head'],
+    url: '/two-factor-challenge',
+}
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
+* @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:42
+* @route '/two-factor-challenge'
+*/
+login.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return login.definition.url + queryParams(options)
+}
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
+* @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:42
+* @route '/two-factor-challenge'
+*/
+login.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: login.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
+* @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:42
+* @route '/two-factor-challenge'
+*/
+login.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'head',
+} => ({
+    url: login.url(options),
+    method: 'head',
+})
+
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::enable
 * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
@@ -275,55 +329,6 @@ recoveryCodes.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams 
     method: 'head',
 } => ({
     url: recoveryCodes.url(options),
-    method: 'head',
-})
-
-/**
-* @see routes/auth.php:25
-* @route '/two-factor-challenge'
-*/
-export const login = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'get',
-} => ({
-    url: login.url(options),
-    method: 'get',
-})
-
-login.definition = {
-    methods: ['get','head'],
-    url: '/two-factor-challenge',
-}
-
-/**
-* @see routes/auth.php:25
-* @route '/two-factor-challenge'
-*/
-login.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
-    return login.definition.url + queryParams(options)
-}
-
-/**
-* @see routes/auth.php:25
-* @route '/two-factor-challenge'
-*/
-login.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'get',
-} => ({
-    url: login.url(options),
-    method: 'get',
-})
-
-/**
-* @see routes/auth.php:25
-* @route '/two-factor-challenge'
-*/
-login.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'head',
-} => ({
-    url: login.url(options),
     method: 'head',
 })
 

@@ -39,3 +39,8 @@ store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     method: 'post',
 })
 
+const confirm = {
+    store,
+}
+
+export default confirm

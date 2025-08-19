@@ -1,5 +1,58 @@
 import { queryParams, type QueryParams } from './../wayfinder'
 /**
+* @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
+* @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+* @route '/login'
+*/
+export const login = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: login.url(options),
+    method: 'get',
+})
+
+login.definition = {
+    methods: ['get','head'],
+    url: '/login',
+}
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
+* @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+* @route '/login'
+*/
+login.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return login.definition.url + queryParams(options)
+}
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
+* @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+* @route '/login'
+*/
+login.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: login.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
+* @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+* @route '/login'
+*/
+login.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'head',
+} => ({
+    url: login.url(options),
+    method: 'head',
+})
+
+/**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::logout
 * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
 * @route '/logout'
@@ -37,6 +90,59 @@ logout.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 } => ({
     url: logout.url(options),
     method: 'post',
+})
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\RegisteredUserController::register
+* @see vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php:41
+* @route '/register'
+*/
+export const register = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: register.url(options),
+    method: 'get',
+})
+
+register.definition = {
+    methods: ['get','head'],
+    url: '/register',
+}
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\RegisteredUserController::register
+* @see vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php:41
+* @route '/register'
+*/
+register.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return register.definition.url + queryParams(options)
+}
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\RegisteredUserController::register
+* @see vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php:41
+* @route '/register'
+*/
+register.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: register.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\RegisteredUserController::register
+* @see vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php:41
+* @route '/register'
+*/
+register.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'head',
+} => ({
+    url: register.url(options),
+    method: 'head',
 })
 
 /**
@@ -134,104 +240,6 @@ dashboard.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): 
     method: 'head',
 } => ({
     url: dashboard.url(options),
-    method: 'head',
-})
-
-/**
-* @see routes/auth.php:6
-* @route '/register'
-*/
-export const register = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'get',
-} => ({
-    url: register.url(options),
-    method: 'get',
-})
-
-register.definition = {
-    methods: ['get','head'],
-    url: '/register',
-}
-
-/**
-* @see routes/auth.php:6
-* @route '/register'
-*/
-register.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
-    return register.definition.url + queryParams(options)
-}
-
-/**
-* @see routes/auth.php:6
-* @route '/register'
-*/
-register.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'get',
-} => ({
-    url: register.url(options),
-    method: 'get',
-})
-
-/**
-* @see routes/auth.php:6
-* @route '/register'
-*/
-register.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'head',
-} => ({
-    url: register.url(options),
-    method: 'head',
-})
-
-/**
-* @see routes/auth.php:10
-* @route '/login'
-*/
-export const login = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'get',
-} => ({
-    url: login.url(options),
-    method: 'get',
-})
-
-login.definition = {
-    methods: ['get','head'],
-    url: '/login',
-}
-
-/**
-* @see routes/auth.php:10
-* @route '/login'
-*/
-login.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
-    return login.definition.url + queryParams(options)
-}
-
-/**
-* @see routes/auth.php:10
-* @route '/login'
-*/
-login.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'get',
-} => ({
-    url: login.url(options),
-    method: 'get',
-})
-
-/**
-* @see routes/auth.php:10
-* @route '/login'
-*/
-login.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'head',
-} => ({
-    url: login.url(options),
     method: 'head',
 })
 

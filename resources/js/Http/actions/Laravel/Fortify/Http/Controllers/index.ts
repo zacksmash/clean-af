@@ -2,12 +2,10 @@ import AuthenticatedSessionController from './AuthenticatedSessionController'
 import PasswordResetLinkController from './PasswordResetLinkController'
 import NewPasswordController from './NewPasswordController'
 import RegisteredUserController from './RegisteredUserController'
-import VerifyEmailController from './VerifyEmailController'
-import EmailVerificationNotificationController from './EmailVerificationNotificationController'
 import ProfileInformationController from './ProfileInformationController'
 import PasswordController from './PasswordController'
-import ConfirmedPasswordStatusController from './ConfirmedPasswordStatusController'
 import ConfirmablePasswordController from './ConfirmablePasswordController'
+import ConfirmedPasswordStatusController from './ConfirmedPasswordStatusController'
 import TwoFactorAuthenticatedSessionController from './TwoFactorAuthenticatedSessionController'
 import TwoFactorAuthenticationController from './TwoFactorAuthenticationController'
 import ConfirmedTwoFactorAuthenticationController from './ConfirmedTwoFactorAuthenticationController'
@@ -20,12 +18,10 @@ const Controllers = {
     PasswordResetLinkController,
     NewPasswordController,
     RegisteredUserController,
-    VerifyEmailController,
-    EmailVerificationNotificationController,
     ProfileInformationController,
     PasswordController,
-    ConfirmedPasswordStatusController,
     ConfirmablePasswordController,
+    ConfirmedPasswordStatusController,
     TwoFactorAuthenticatedSessionController,
     TwoFactorAuthenticationController,
     ConfirmedTwoFactorAuthenticationController,

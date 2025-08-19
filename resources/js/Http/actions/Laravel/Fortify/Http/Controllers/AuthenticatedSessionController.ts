@@ -1,5 +1,58 @@
 import { queryParams, type QueryParams } from './../../../../../wayfinder'
 /**
+* @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::create
+* @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+* @route '/login'
+*/
+export const create = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: create.url(options),
+    method: 'get',
+})
+
+create.definition = {
+    methods: ['get','head'],
+    url: '/login',
+}
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::create
+* @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+* @route '/login'
+*/
+create.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return create.definition.url + queryParams(options)
+}
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::create
+* @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+* @route '/login'
+*/
+create.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: create.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::create
+* @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+* @route '/login'
+*/
+create.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'head',
+} => ({
+    url: create.url(options),
+    method: 'head',
+})
+
+/**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::store
 * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:58
 * @route '/login'
@@ -79,6 +132,6 @@ destroy.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     method: 'post',
 })
 
-const AuthenticatedSessionController = { store, destroy }
+const AuthenticatedSessionController = { create, store, destroy }
 
 export default AuthenticatedSessionController
