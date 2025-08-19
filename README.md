@@ -22,7 +22,7 @@ laravel new my-app --using=zacksmash/clean-af
 ```
 
 ## Configuration
-If you run into errors, you probably need to review the [Laravel Fortify](https://laravel.com/docs/12.x/fortify) docs. This just a frontend starter kit, so nothing is configured for things like 2FA or Email Verification out of the box.
+If you run into errors, you'll probably need to review the [Laravel Fortify](https://laravel.com/docs/12.x/fortify) docs. This just a frontend starter kit, so nothing is configured for things like 2FA or Email Verification out of the box.
 
 ### Email Verification
 - Visit `app/Models/User.php` and implement the `MustVerifyEmail` interface.
@@ -36,7 +36,7 @@ If you run into errors, you probably need to review the [Laravel Fortify](https:
 - Visit `resources/js/Pages/Dashboard.vue` and uncomment the `TwoFactorAuth` import and component
 
 ### Wayfinder Issues
-If you run into Node error screens, you may need to compile your Wayfinder types again.
+If you run into Node error screens, you may need to compile the Wayfinder types again.
 
 ```bash
 composer wayfinder
