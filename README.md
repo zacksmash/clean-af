@@ -33,7 +33,7 @@ If you run into errors, you probably need to review the [Laravel Fortify](https:
 - Visit `app/Models/User.php` and use the `TwoFactorAuthenticatable` trait
 - Visit `app/Providers/FortifyServiceProvider.php` and uncomment `Fortify::twoFactorChallengeView`
 - Visit `config/fortify.php` and uncomment `Features::twoFactorAuthentication()`
-- Visit `resources/js/Pages/Dashboard.vue` and uncomment the Two-Factor component import and element
+- Visit `resources/js/Pages/Dashboard.vue` and uncomment the `TwoFactorAuth` component import and element
 
 ### Wayfinder Issues
 If you run into Node error screens, you may need to compile your Wayfinder types again.
