@@ -32,8 +32,8 @@ export default defineConfigWithVueTs([
         'sort-imports': [
             'error',
             {
-            ignoreDeclarationSort: true,
-            allowSeparatedGroups: true,
+                ignoreDeclarationSort: true,
+                allowSeparatedGroups: true,
             },
         ],
         'semi': ['error', 'never'],
@@ -49,7 +49,7 @@ export default defineConfigWithVueTs([
         'vue/attributes-order': [
             'error',
             {
-            alphabetical: false,
+                alphabetical: false,
             },
         ],
         'vue/block-lang': 'off',
@@ -69,8 +69,8 @@ export default defineConfigWithVueTs([
         'vue/max-attributes-per-line': [
             'error',
             {
-            singleline: 2,
-            multiline: 1,
+                singleline: 2,
+                multiline: 1,
             },
         ],
         'vue/multi-word-component-names': 'off',
