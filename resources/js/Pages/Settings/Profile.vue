@@ -1,15 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 import { Form, usePage } from '@inertiajs/vue3'
+import { update } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ProfileInformationController'
+import { type User } from '@/Types'
 
-const user = computed(() => usePage().props.auth.user)
+const user = computed(() => usePage().props.auth.user as User)
 </script>
 
 <template>
     <Form
         v-slot="{ errors }"
-        :action="route('user-profile-information.update')"
-        method="put"
+        :action="update()"
     >
         <div>
             <label for="name">Name</label>

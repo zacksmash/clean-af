@@ -1,5 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import { Form, Head, Link } from '@inertiajs/vue3'
+import { store as authenticate } from '@/Http/actions/Laravel/Fortify/Http/Controllers/AuthenticatedSessionController'
+import { request as forgotPassword } from '@/Http/routes/password'
+import { register } from '@/Http/routes'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
@@ -10,9 +13,9 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
     <AuthLayout>
         <Form
             v-slot="{ errors }"
-            :action="route('login.store')"
+            :action="authenticate()"
             :reset-on-success="['password']"
-            method="post"
+            :reset-on-error="['password']"
         >
             <div>
                 <label for="email">Email</label>
@@ -61,14 +64,14 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
             </div>
 
             <div>
-                <Link :href="route('password.request')">Forgot Password?</Link>
+                <Link :href="forgotPassword()">Forgot Password</Link>
             </div>
 
             <button type="submit">Login</button>
         </Form>
 
         <p>
-            Don't have an account? <Link :href="route('register')">Register</Link>
+            <Link :href="register()">Register</Link>
         </p>
     </AuthLayout>
 </template>

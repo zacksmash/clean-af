@@ -14,7 +14,7 @@
         "laravel/fortify": "^1.28",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "tightenco/ziggy": "^2.5"
+        "laravel/wayfinder": "^0.1.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -62,6 +62,9 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
+        ],
+        "wayfinder": [
+            "@php artisan wayfinder:generate --path=resources/js/Http"
         ]
     },
     "extra": {

@@ -1,12 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import { Form, Head, Link } from '@inertiajs/vue3'
+import { store as resetPassword } from '@/Http/actions/Laravel/Fortify/Http/Controllers/NewPasswordController';
+import { login } from '@/Http/routes'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
-defineProps({
-    token: String,
-    email: String,
-})
+defineProps<{
+    token?: string;
+    email?: string;
+}>()
 </script>
 
 <template>
@@ -15,8 +17,7 @@ defineProps({
     <AuthLayout>
         <Form
             v-slot="{ errors }"
-            :action="route('password.update')"
-            method="post"
+            :action="resetPassword()"
             :transform="(data) => ({ ...data, token, email })"
             :reset-on-success="['password', 'password_confirmation']"
         >
@@ -74,7 +75,7 @@ defineProps({
         </Form>
 
         <p>
-            Remembered your password? <Link :href="route('login')">Login</Link>
+            <Link :href="login()">Login</Link>
         </p>
     </AuthLayout>
 </template>

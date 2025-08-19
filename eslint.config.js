@@ -1,11 +1,12 @@
 import js from '@eslint/js'
 import globals from 'globals'
 import pluginVue from 'eslint-plugin-vue'
-import { defineConfig } from 'eslint/config'
 import eslintPluginBetterTailwindcss from 'eslint-plugin-better-tailwindcss'
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
 
-export default defineConfig([
+export default defineConfigWithVueTs([
     pluginVue.configs['flat/essential'],
+    vueTsConfigs.recommended,
     {
         files: ['resources/js/**/*.{js,mjs,cjs,vue}'],
         plugins: { js, 'better-tailwindcss': eslintPluginBetterTailwindcss },
@@ -31,8 +32,8 @@ export default defineConfig([
         'sort-imports': [
             'error',
             {
-            ignoreDeclarationSort: true,
-            allowSeparatedGroups: true,
+                ignoreDeclarationSort: true,
+                allowSeparatedGroups: true,
             },
         ],
         'semi': ['error', 'never'],
@@ -48,7 +49,7 @@ export default defineConfig([
         'vue/attributes-order': [
             'error',
             {
-            alphabetical: false,
+                alphabetical: false,
             },
         ],
         'vue/block-lang': 'off',
@@ -68,8 +69,8 @@ export default defineConfig([
         'vue/max-attributes-per-line': [
             'error',
             {
-            singleline: 2,
-            multiline: 1,
+                singleline: 2,
+                multiline: 1,
             },
         ],
         'vue/multi-word-component-names': 'off',

@@ -1,5 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import { Form, Head, Link } from '@inertiajs/vue3'
+import { store as register } from '@/Http/actions/Laravel/Fortify/Http/Controllers/RegisteredUserController'
+import { login } from '@/Http/routes'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
@@ -10,8 +12,7 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
     <AuthLayout>
         <Form
             v-slot="{ errors }"
-            :action="route('register.store')"
-            method="post"
+            :action="register()"
             :reset-on-success="['password', 'password_confirmation']"
         >
             <div>
@@ -91,7 +92,7 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
         </Form>
 
         <p>
-            Already have an account? <Link :href="route('login')">Login</Link>
+            <Link :href="login()">Login</Link>
         </p>
     </AuthLayout>
 </template>
