@@ -92,7 +92,7 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
         </Form>
 
         <p>
-            Already have an account? <Link :href="login()">Login</Link>
+            <Link :href="login()">Login</Link>
         </p>
     </AuthLayout>
 </template>

@@ -75,7 +75,7 @@ defineProps<{
         </Form>
 
         <p>
-            Remembered your password? <Link :href="login()">Login</Link>
+            <Link :href="login()">Login</Link>
         </p>
     </AuthLayout>
 </template>

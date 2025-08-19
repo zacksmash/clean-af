@@ -19,7 +19,7 @@ const showRecoveryCodeField = ref<Boolean>(false)
         >
             <div>
                 <button v-if="!showCodeField" @click.prevent="showCodeField = true; showRecoveryCodeField = false">
-                    Use Authenticator App
+                    Use 2FA Code
                 </button>
 
                 <button v-if="!showRecoveryCodeField" @click.prevent="showCodeField = false; showRecoveryCodeField = true">
@@ -29,7 +29,7 @@ const showRecoveryCodeField = ref<Boolean>(false)
 
             <div v-if="showCodeField">
                 <p>
-                    Please confirm access to your account by entering the authentication code provided by your authenticator application.
+                    Log in with two-factor code
                 </p>
 
                 <div>
@@ -50,7 +50,7 @@ const showRecoveryCodeField = ref<Boolean>(false)
 
             <div v-if="showRecoveryCodeField">
                 <p>
-                    Please confirm access to your account by entering one of your emergency recovery codes.
+                    Log in with recovery code
                 </p>
 
                 <div>

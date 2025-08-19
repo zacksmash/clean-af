@@ -64,14 +64,14 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
             </div>
 
             <div>
-                <Link :href="forgotPassword()">Forgot Password?</Link>
+                <Link :href="forgotPassword()">Forgot Password</Link>
             </div>
 
             <button type="submit">Login</button>
         </Form>
 
         <p>
-            Don't have an account? <Link :href="register()">Register</Link>
+            <Link :href="register()">Register</Link>
         </p>
     </AuthLayout>
 </template>
