@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Form, usePage } from '@inertiajs/vue3'
-import { store, destroy } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticationController'
+import { store as enableTwoFactor, destroy as disableTwoFactor } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticationController'
 import { store as confirmTwoFactor } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ConfirmedTwoFactorAuthenticationController'
 import { store as regenerateRecoveryCodes } from '@/Http/actions/Laravel/Fortify/Http/Controllers/RecoveryCodeController'
 import { type User } from '@/Types'
@@ -22,13 +22,13 @@ const pageProps = computed(() => usePage().props as PageProps);
 <template>
     <div>
         <div v-if="! pageProps.auth.user?.two_factor_secret">
-            <Form :action="store()">
+            <Form :action="enableTwoFactor()">
                 <button type="submit">Enable Two-Factor Authentication</button>
             </Form>
         </div>
 
         <div v-else>
-            <Form :action="destroy()">
+            <Form :action="disableTwoFactor()">
                 <button type="submit">Disable Two-Factor Authentication</button>
             </Form>
 

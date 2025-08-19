@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Form, Head, Link } from '@inertiajs/vue3'
+import { store as resetPassword } from '@/Http/actions/Laravel/Fortify/Http/Controllers/NewPasswordController';
 import { login } from '@/Http/routes'
-import { store } from '@/Http/actions/Laravel/Fortify/Http/Controllers/NewPasswordController';
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
@@ -17,7 +17,7 @@ defineProps<{
     <AuthLayout>
         <Form
             v-slot="{ errors }"
-            :action="store()"
+            :action="resetPassword()"
             :transform="(data) => ({ ...data, token, email })"
             :reset-on-success="['password', 'password_confirmation']"
         >

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Form, Head } from '@inertiajs/vue3'
-import { store } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticatedSessionController'
+import { store as twoFactorAuthenticate } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticatedSessionController'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
@@ -15,7 +15,7 @@ const showRecoveryCodeField = ref<Boolean>(false)
     <AuthLayout>
         <Form
             v-slot="{ errors }"
-            :action="store()"
+            :action="twoFactorAuthenticate()"
         >
             <div>
                 <button v-if="!showCodeField" @click.prevent="showCodeField = true; showRecoveryCodeField = false">

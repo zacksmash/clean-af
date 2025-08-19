@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Form, Head } from '@inertiajs/vue3'
-import { store } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ConfirmablePasswordController'
+import { store as confirmPassword } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ConfirmablePasswordController'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
@@ -11,7 +11,7 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
     <AuthLayout>
         <Form
             v-slot="{ errors }"
-            :action="store()"
+            :action="confirmPassword()"
             reset-on-success
         >
             <div>

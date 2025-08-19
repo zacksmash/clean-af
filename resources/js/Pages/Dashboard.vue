@@ -9,15 +9,13 @@ import Profile from '@/Pages/Settings/Profile.vue'
 import Password from '@/Pages/Settings/Password.vue'
 import TwoFactorAuth from '@/Pages/Settings/TwoFactorAuth.vue'
 
-interface Props {
+const user = computed(() => usePage().props.auth.user as User)
+const status = computed(() => usePage().props.status as string | undefined)
+const props = defineProps<{
     canUpdateProfile: boolean;
     canUpdatePassword?: boolean;
     canManageTwoFactorAuthentication?: boolean;
-}
-
-const user = computed(() => usePage().props.auth.user as User)
-const status = computed(() => usePage().props.status as string | undefined)
-const props = defineProps<Props>()
+}>()
 </script>
 <template>
     <Head title="Dashboard"/>
