@@ -56,9 +56,9 @@ class FortifyServiceProvider extends ServiceProvider
         //     return inertia()->render('Auth/VerifyEmail');
         // });
 
-        // Fortify::twoFactorChallengeView(function () {
-        //     return inertia()->render('Auth/TwoFactorChallenge');
-        // });
+        Fortify::twoFactorChallengeView(function () {
+            return inertia()->render('Auth/TwoFactorChallenge');
+        });
 
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
