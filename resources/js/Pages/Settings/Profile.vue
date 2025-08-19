@@ -17,8 +17,10 @@ const user = computed(() => usePage().props.auth.user as User)
 
             <input
                 id="name"
-                type="text"
                 name="name"
+                required
+                autocomplete="name"
+                placeholder="Full name"
                 :value="user.name"
             >
 
@@ -34,6 +36,9 @@ const user = computed(() => usePage().props.auth.user as User)
                 id="email"
                 type="email"
                 name="email"
+                required
+                autocomplete="username"
+                placeholder="Email address"
                 :value="user.email"
             >
 

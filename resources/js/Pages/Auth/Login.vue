@@ -42,6 +42,7 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
                     id="password"
                     type="password"
                     name="password"
+                    required
                     :tabindex="2"
                     autocomplete="current-password"
                     placeholder="Password"

@@ -49,7 +49,9 @@ const pageProps = computed(() => usePage().props as PageProps);
 
                 <Form :action="confirmTwoFactor()">
                     <div>
-                        <label>Enter current 2FA code from your authenticator application to confirm the setup has been successful.</label>
+                        <label>
+                            Enter current 2FA code from your authenticator application to confirm the setup has been successful.
+                        </label>
 
                         <input
                             type="text"

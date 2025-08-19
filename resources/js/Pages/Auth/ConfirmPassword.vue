@@ -22,6 +22,8 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
                     type="password"
                     name="password"
                     required
+                    autocomplete="current-password"
+                    autofocus
                 >
 
                 <div v-if="errors.password">

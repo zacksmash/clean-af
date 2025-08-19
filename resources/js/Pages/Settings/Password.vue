@@ -16,8 +16,11 @@ import { update } from '@/Http/actions/Laravel/Fortify/Http/Controllers/Password
 
             <input
                 id="current_password"
-                type="password"
+                ref="currentPasswordInput"
                 name="current_password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Current password"
             >
 
             <div v-if="errors.current_password">
@@ -30,8 +33,11 @@ import { update } from '@/Http/actions/Laravel/Fortify/Http/Controllers/Password
 
             <input
                 id="password"
-                type="password"
+                ref="passwordInput"
                 name="password"
+                type="password"
+                autocomplete="new-password"
+                placeholder="New password"
             >
 
             <div v-if="errors.password">
@@ -44,8 +50,10 @@ import { update } from '@/Http/actions/Laravel/Fortify/Http/Controllers/Password
 
             <input
                 id="password_confirmation"
-                type="password"
                 name="password_confirmation"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Confirm password"
             >
 
             <div v-if="errors.password_confirmation">
