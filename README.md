@@ -40,5 +40,5 @@ If you run into Node error screens, you may need to compile your Wayfinder types
 `composer wayfinder`
 
 ### Other Helper Commands
-`npm run lint` - Runs ESLint
-`composer lint` - Runs Pint
+- `npm run lint` - Runs ESLint
+- `composer lint` - Runs Pint
