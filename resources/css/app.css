@@ -33,8 +33,12 @@
             @apply mb-4;
 
             > label {
-                @apply block text-sm font-medium text-gray-700;
+                @apply block;
             }
+        }
+
+        label {
+            @apply text-sm font-medium text-gray-700;
         }
     }
 

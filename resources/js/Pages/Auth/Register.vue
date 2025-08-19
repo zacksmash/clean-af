@@ -10,6 +10,10 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
     <Head title="Register"/>
 
     <AuthLayout>
+        <section>
+            <p>Register</p>
+        </section>
+
         <Form
             v-slot="{ errors }"
             :action="register()"

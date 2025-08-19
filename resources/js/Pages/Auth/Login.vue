@@ -11,6 +11,10 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
     <Head title="Login"/>
 
     <AuthLayout>
+        <section>
+            <p>Log In</p>
+        </section>
+
         <Form
             v-slot="{ errors }"
             :action="authenticate()"
@@ -66,7 +70,7 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
                 </div>
             </div>
 
-            <button type="submit">Login</button>
+            <button type="submit">Log In</button>
         </Form>
 
         <section>

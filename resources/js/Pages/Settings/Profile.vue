@@ -13,6 +13,10 @@ const user = computed(() => usePage().props.auth.user as User)
         :action="update()"
     >
         <div>
+            <p>Update Profile</p>
+        </div>
+
+        <div>
             <label for="name">Name</label>
 
             <input

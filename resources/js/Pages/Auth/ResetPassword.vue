@@ -15,6 +15,10 @@ defineProps<{
     <Head title="Reset Password"/>
 
     <AuthLayout>
+        <section>
+            <p>Reset Password</p>
+        </section>
+
         <Form
             v-slot="{ errors }"
             :action="resetPassword()"

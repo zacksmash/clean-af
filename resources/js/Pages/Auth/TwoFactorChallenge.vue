@@ -14,6 +14,8 @@ const showRecoveryCodeField = ref<boolean>(false)
 
     <AuthLayout>
         <section>
+            <p>Two Factor Challenge</p>
+
             <button v-if="!showCodeField" @click.prevent="showCodeField = true; showRecoveryCodeField = false">
                 Use Authentication Code
             </button>

@@ -10,7 +10,7 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
 
     <AuthLayout>
         <section>
-            <p>Please confirm your password before continuing.</p>
+            <p>Confirm Password</p>
         </section>
 
         <Form

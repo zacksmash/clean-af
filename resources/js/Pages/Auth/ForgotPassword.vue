@@ -14,6 +14,10 @@ defineProps<{
     <Head title="Forgot Password"/>
 
     <AuthLayout>
+        <section>
+            <p>Forgot Password</p>
+        </section>
+
         <Form
             v-slot="{ errors }"
             :action="sendPasswordResetLink()"
