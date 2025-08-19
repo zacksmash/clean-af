@@ -1,5 +1,4 @@
 # clean af 🧼 - A Laravel starter kit that's clean af
-
 - Minimal Tailwind styles, that can be completely removed in the app.css if you want.
 - Uses [Laravel Fortify](https://laravel.com/docs/12.x/fortify) to handle authentication, 2FA, etc.
 - Uses [Laravel Wayfinder](https://github.com/laravel/wayfinder) for routing
@@ -10,15 +9,12 @@
 ![Dashboard Screen](https://github.com/zacksmash/assets/blob/main/clean-af/img/dashboard-screen.png)
 
 ## Installation
-
 ### Via Laravel Herd
-
 One-click install a new application using this starter kit through [Laravel Herd](https://herd.laravel.com):
 
 <a href="https://herd.laravel.com/new?starter-kit=zacksmash/clean-af"><img src="https://img.shields.io/badge/Install%20with%20Herd-fff?logo=laravel&logoColor=f53003" alt="Install with Herd"></a>
 
 ### Via the Laravel Installer
-
 Create a new Laravel application using this starter kit through the official [Laravel Installer](https://laravel.com/docs/12.x/installation#installing-php):
 
 ```bash
@@ -26,5 +22,4 @@ laravel new my-app --using=zacksmash/clean-af
 ```
 
 ## Configuration
-
 If you run into errors, you probably need to review the [Laravel Fortify](https://laravel.com/docs/12.x/fortify) docs. This just a frontend starter kit, so nothing is configured for things like 2FA or Email Verification out of the box.
