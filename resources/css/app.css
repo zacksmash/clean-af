@@ -8,7 +8,9 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
-
+/*
+    These styles may be deleted when pulling in your own component library
+ */
 @layer components {
     input:not([type='checkbox']):not([type='radio']) {
         @apply border border-gray-300 focus:border-blue-500 focus:ring-blue-500 h-10 rounded-md px-2;
