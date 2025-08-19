@@ -11,15 +11,31 @@
 
 @layer components {
     input:not([type='checkbox']):not([type='radio']) {
-        @apply border border-gray-300 focus:border-blue-500 focus:ring-blue-500 ml-2 h-10 rounded-md px-2;
+        @apply border border-gray-300 focus:border-blue-500 focus:ring-blue-500 h-10 rounded-md px-2;
+    }
+
+    input[type='checkbox'] {
+        @apply mr-2;
     }
 
     button {
         @apply inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150;
     }
 
-    form > div {
-        @apply mb-4;
+    section {
+        @apply p-4;
+    }
+
+    form {
+        @apply px-4;
+
+        > div {
+            @apply mb-4;
+
+            > label {
+                @apply block text-sm font-medium text-gray-700;
+            }
+        }
     }
 
     a[href] {

@@ -34,17 +34,17 @@ defineProps<{
                 <div v-if="errors.email">
                     <mark>{{ errors.email }}</mark>
                 </div>
+
+                <div v-if="status">
+                    <mark>{{ status }}</mark>
+                </div>
             </div>
 
             <button type="submit">Send Password Reset Link</button>
         </Form>
 
-        <div v-if="status">
-            <mark>{{ status }}</mark>
-        </div>
-
-        <p>
+        <section>
             <Link :href="login()">Login</Link>
-        </p>
+        </section>
     </AuthLayout>
 </template>

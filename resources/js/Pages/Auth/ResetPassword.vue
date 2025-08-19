@@ -74,8 +74,8 @@ defineProps<{
             <button type="submit">Reset Password</button>
         </Form>
 
-        <p>
+        <section>
             <Link :href="login()">Login</Link>
-        </p>
+        </section>
     </AuthLayout>
 </template>

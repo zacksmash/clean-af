@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Form, Head } from '@inertiajs/vue3'
+import { Form, Head, Link } from '@inertiajs/vue3'
 import { store as sendVerificationEmail } from '@/Http/actions/Laravel/Fortify/Http/Controllers/EmailVerificationNotificationController'
 import { logout } from '@/Http/routes'
 
@@ -14,16 +14,22 @@ defineProps<{
     <Head title="Verify Email"/>
 
     <AuthLayout>
-        <div v-if="status === 'verification-link-sent'">
-            <mark>A new verification link has been sent to the email address you provided during registration.</mark>
-        </div>
+        <section>
+            <p>Verify Your Email</p>
+
+            <div v-if="status === 'verification-link-sent'">
+                <mark>A new verification link has been sent to the email address you provided during registration.</mark>
+            </div>
+        </section>
 
         <Form :action="sendVerificationEmail()">
             <button type="submit">Resend Verification Email</button>
         </Form>
 
-        <Form :action="logout()">
-            <button type="submit">Log out</button>
-        </Form>
+        <section>
+            <Link :href="logout()">
+                Log out
+            </Link>
+        </section>
     </AuthLayout>
 </template>

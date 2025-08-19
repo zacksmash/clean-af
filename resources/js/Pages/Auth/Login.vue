@@ -54,25 +54,25 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
             </div>
 
             <div>
-                <input
-                    id="remember"
-                    type="checkbox"
-                    name="remember"
-                    :tabindex="3"
-                >
+                <div>
+                    <input
+                        id="remember"
+                        type="checkbox"
+                        name="remember"
+                        :tabindex="3"
+                    >
 
-                <label for="remember">Remember Me</label>
-            </div>
-
-            <div>
-                <Link :href="forgotPassword()">Forgot Password</Link>
+                    <label for="remember">Remember Me</label>
+                </div>
             </div>
 
             <button type="submit">Login</button>
         </Form>
 
-        <p>
+        <section>
+            <Link :href="forgotPassword()">Forgot Password</Link>
+            &nbsp;
             <Link :href="register()">Register</Link>
-        </p>
+        </section>
     </AuthLayout>
 </template>

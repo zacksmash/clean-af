@@ -91,8 +91,8 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
             <button type="submit">Register</button>
         </Form>
 
-        <p>
+        <section>
             <Link :href="login()">Login</Link>
-        </p>
+        </section>
     </AuthLayout>
 </template>

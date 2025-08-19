@@ -13,23 +13,23 @@ const showRecoveryCodeField = ref<boolean>(false)
     <Head title="Two Factor Challenge"/>
 
     <AuthLayout>
+        <section>
+            <button v-if="!showCodeField" @click.prevent="showCodeField = true; showRecoveryCodeField = false">
+                Use Authentication Code
+            </button>
+
+            <button v-if="!showRecoveryCodeField" @click.prevent="showCodeField = false; showRecoveryCodeField = true">
+                Use Recovery Code
+            </button>
+        </section>
+
         <Form
             v-slot="{ errors }"
             :action="twoFactorAuthenticate()"
         >
-            <div>
-                <button v-if="!showCodeField" @click.prevent="showCodeField = true; showRecoveryCodeField = false">
-                    Use 2FA Code
-                </button>
-
-                <button v-if="!showRecoveryCodeField" @click.prevent="showCodeField = false; showRecoveryCodeField = true">
-                    Use Recovery Code
-                </button>
-            </div>
-
-            <div v-if="showCodeField">
+            <template v-if="showCodeField">
                 <p>
-                    Log in with two-factor code
+                    Log in with Authentication Code
                 </p>
 
                 <div>
@@ -46,9 +46,9 @@ const showRecoveryCodeField = ref<boolean>(false)
                         <mark>{{ errors.code }}</mark>
                     </div>
                 </div>
-            </div>
+            </template>
 
-            <div v-if="showRecoveryCodeField">
+            <template v-if="showRecoveryCodeField">
                 <p>
                     Log in with recovery code
                 </p>
@@ -66,7 +66,7 @@ const showRecoveryCodeField = ref<boolean>(false)
                         <mark>{{ errors.recovery_code }}</mark>
                     </div>
                 </div>
-            </div>
+            </template>
 
             <button type="submit">Login</button>
         </Form>

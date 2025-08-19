@@ -21,15 +21,15 @@ const props = defineProps<{
     <Head title="Dashboard"/>
 
     <AppLayout>
-        <div>Logged in as {{ user?.name }}!</div>
+        <section>
+            <div>Logged in as {{ user?.name }}!</div>
+
+            <mark>{{ status }}</mark>
+        </section>
 
         <Form :action="logout()">
             <button type="submit">Logout</button>
         </Form>
-
-        <div>
-            <mark>{{ status }}</mark>
-        </div>
 
         <hr>
 

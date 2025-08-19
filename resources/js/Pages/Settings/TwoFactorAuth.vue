@@ -17,35 +17,37 @@ const pageProps = computed(() => usePage().props as PageProps)
 
 <template>
     <div>
-        <div v-if="! pageProps.auth.user?.two_factor_secret">
+        <template v-if="! pageProps.auth.user?.two_factor_secret">
             <Form :action="enableTwoFactor()">
                 <button type="submit">Enable Two-Factor Authentication</button>
             </Form>
-        </div>
+        </template>
 
-        <div v-else>
+        <template v-else>
             <Form :action="disableTwoFactor()">
                 <button type="submit">Disable Two-Factor Authentication</button>
             </Form>
 
             <template v-if="pageProps.status === 'two-factor-authentication-enabled'">
-                <p>
-                    Two factor authentication is now enabled. Please finish configuring two factor authentication below.
-                </p>
+                <section>
+                    <p>
+                        Two factor authentication is now enabled. Please finish configuring two factor authentication below.
+                    </p>
 
-                <p>
-                    Scan the QR code using your phone’s authenticator application, or click it to use an authenticator application on your current device.
-                </p>
+                    <p>
+                        Scan the QR code using your phone’s authenticator application, or click it to use an authenticator application on your current device.
+                    </p>
 
-                <div>
-                    <a
-                        :href="pageProps.twoFactorQrCodeUrl"
-                        rel="alternate"
-                        aria-label="2FA link"
-                    >
-                        <div v-html="pageProps.twoFactorQrCodeSvg"></div>
-                    </a>
-                </div>
+                    <div>
+                        <a
+                            :href="pageProps.twoFactorQrCodeUrl"
+                            rel="alternate"
+                            aria-label="2FA link"
+                        >
+                            <div v-html="pageProps.twoFactorQrCodeSvg"></div>
+                        </a>
+                    </div>
+                </section>
 
                 <Form :action="confirmTwoFactor()">
                     <div>
@@ -65,24 +67,30 @@ const pageProps = computed(() => usePage().props as PageProps)
                     <button type="submit">Confirm 2FA code</button>
                 </Form>
 
-                <p>
-                    Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.
-                </p>
+                <section>
+                    <p>
+                        Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.
+                    </p>
+                </section>
             </template>
 
             <template v-if="pageProps.status === 'two-factor-authentication-confirmed'">
-                <p>
-                    Two factor authentication confirmed and enabled successfully.
-                </p>
+                <section>
+                    <p>
+                        Two factor authentication confirmed and enabled successfully.
+                    </p>
+                </section>
             </template>
 
-            <div v-for="code in pageProps.twoFactorRecoveryCodes" :key="code">
-                {{ code }}
-            </div>
+            <section>
+                <div v-for="code in pageProps.twoFactorRecoveryCodes" :key="code">
+                    <pre>{{ code }}</pre>
+                </div>
+            </section>
 
             <Form :action="regenerateRecoveryCodes()">
                 <button type="submit">Regenerate Recovery Codes</button>
             </Form>
-        </div>
+        </template>
     </div>
 </template>
