@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Form, Head } from '@inertiajs/vue3'
-import { logout } from '@/Http/routes'
 import { store as sendVerificationEmail } from '@/Http/actions/Laravel/Fortify/Http/Controllers/EmailVerificationNotificationController'
+import { logout } from '@/Http/routes'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
