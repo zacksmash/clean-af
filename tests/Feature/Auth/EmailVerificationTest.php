@@ -46,4 +46,4 @@ describe('email verification', function () {
 
         expect($user->fresh()->hasVerifiedEmail())->toBeFalse();
     });
-})->skip(fn () => ! Features::enabled(Features::emailVerification()), 'Email verification feature is not enabled.');
+})->skip(fn () => ! Features::enabled(Features::emailVerification()), 'Email verification is not enabled.');
