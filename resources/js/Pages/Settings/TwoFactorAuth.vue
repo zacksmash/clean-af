@@ -4,13 +4,24 @@ import { Form, usePage } from '@inertiajs/vue3'
 import { store, destroy } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticationController'
 import { store as confirmTwoFactor } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ConfirmedTwoFactorAuthenticationController'
 import { store as regenerateRecoveryCodes } from '@/Http/actions/Laravel/Fortify/Http/Controllers/RecoveryCodeController'
+import { type User } from '@/Types'
 
-const props = computed(() => usePage().props)
+interface PageProps {
+    auth: {
+        user: User;
+    };
+    status?: string;
+    twoFactorQrCodeUrl?: string;
+    twoFactorQrCodeSvg?: string;
+    twoFactorRecoveryCodes?: string[];
+}
+
+const pageProps = computed(() => usePage().props as PageProps);
 </script>
 
 <template>
     <div>
-        <div v-if="! props.auth.user?.two_factor_secret">
+        <div v-if="! pageProps.auth.user?.two_factor_secret">
             <Form :action="store()">
                 <button type="submit">Enable Two-Factor Authentication</button>
             </Form>
@@ -21,7 +32,7 @@ const props = computed(() => usePage().props)
                 <button type="submit">Disable Two-Factor Authentication</button>
             </Form>
 
-            <template v-if="props.status === 'two-factor-authentication-enabled'">
+            <template v-if="pageProps.status === 'two-factor-authentication-enabled'">
                 <p>
                     Two factor authentication is now enabled. Please finish configuring two factor authentication below.
                 </p>
@@ -32,11 +43,11 @@ const props = computed(() => usePage().props)
 
                 <div>
                     <a
-                        :href="props.twoFactorQrCodeUrl"
+                        :href="pageProps.twoFactorQrCodeUrl"
                         rel="alternate"
                         aria-label="2FA link"
                     >
-                        <div v-html="props.twoFactorQrCodeSvg"></div>
+                        <div v-html="pageProps.twoFactorQrCodeSvg"></div>
                     </a>
                 </div>
 
@@ -61,13 +72,13 @@ const props = computed(() => usePage().props)
                 </p>
             </template>
 
-            <template v-if="props.status === 'two-factor-authentication-confirmed'">
+            <template v-if="pageProps.status === 'two-factor-authentication-confirmed'">
                 <p>
                     Two factor authentication confirmed and enabled successfully.
                 </p>
             </template>
 
-            <div v-for="code in props.twoFactorRecoveryCodes" :key="code">
+            <div v-for="code in pageProps.twoFactorRecoveryCodes" :key="code">
                 {{ code }}
             </div>
 

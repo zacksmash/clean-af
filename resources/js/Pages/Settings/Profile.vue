@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import { Form, usePage } from '@inertiajs/vue3'
 import { update } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ProfileInformationController'
-
 import { type User } from '@/Types'
 
 const user = computed(() => usePage().props.auth.user as User)

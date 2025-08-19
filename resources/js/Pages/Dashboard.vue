@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Form, Head, usePage } from '@inertiajs/vue3'
+import { logout } from '@/Http/routes'
+import { type User } from '@/Types'
 
 import AppLayout from '@/Layouts/AppLayout.vue'
 import Profile from '@/Pages/Settings/Profile.vue'
 import Password from '@/Pages/Settings/Password.vue'
 import TwoFactorAuth from '@/Pages/Settings/TwoFactorAuth.vue'
-import { logout } from '@/Http/routes'
-
-import { type User } from '@/Types'
 
 interface Props {
     canUpdateProfile: boolean;
