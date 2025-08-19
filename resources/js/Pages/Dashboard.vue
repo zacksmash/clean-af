@@ -28,7 +28,7 @@ const props = defineProps<{
         </section>
 
         <Form :action="logout()">
-            <button type="submit">Logout</button>
+            <button type="submit">Log Out</button>
         </Form>
 
         <hr>
