@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Form, Head, Link } from '@inertiajs/vue3'
-import { store as resetPassword } from '@/Http/actions/Laravel/Fortify/Http/Controllers/NewPasswordController';
+import { store as resetPassword } from '@/Http/actions/Laravel/Fortify/Http/Controllers/NewPasswordController'
 import { login } from '@/Http/routes'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'

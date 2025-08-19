@@ -6,12 +6,6 @@ import ProfileInformationController from './ProfileInformationController'
 import PasswordController from './PasswordController'
 import ConfirmablePasswordController from './ConfirmablePasswordController'
 import ConfirmedPasswordStatusController from './ConfirmedPasswordStatusController'
-import TwoFactorAuthenticatedSessionController from './TwoFactorAuthenticatedSessionController'
-import TwoFactorAuthenticationController from './TwoFactorAuthenticationController'
-import ConfirmedTwoFactorAuthenticationController from './ConfirmedTwoFactorAuthenticationController'
-import TwoFactorQrCodeController from './TwoFactorQrCodeController'
-import TwoFactorSecretKeyController from './TwoFactorSecretKeyController'
-import RecoveryCodeController from './RecoveryCodeController'
 
 const Controllers = {
     AuthenticatedSessionController,
@@ -22,12 +16,6 @@ const Controllers = {
     PasswordController,
     ConfirmablePasswordController,
     ConfirmedPasswordStatusController,
-    TwoFactorAuthenticatedSessionController,
-    TwoFactorAuthenticationController,
-    ConfirmedTwoFactorAuthenticationController,
-    TwoFactorQrCodeController,
-    TwoFactorSecretKeyController,
-    RecoveryCodeController,
 }
 
 export default Controllers

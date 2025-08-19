@@ -5,8 +5,8 @@ import { store as twoFactorAuthenticate } from '@/Http/actions/Laravel/Fortify/H
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
-const showCodeField = ref<Boolean>(true)
-const showRecoveryCodeField = ref<Boolean>(false)
+const showCodeField = ref<boolean>(true)
+const showRecoveryCodeField = ref<boolean>(false)
 </script>
 
 <template>

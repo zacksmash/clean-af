@@ -29,12 +29,12 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Fortify::loginView(function () {
-            return inertia()->render('Auth/Login');
-        });
-
         Fortify::registerView(function () {
             return inertia()->render('Auth/Register');
+        });
+
+        Fortify::loginView(function () {
+            return inertia()->render('Auth/Login');
         });
 
         Fortify::requestPasswordResetLinkView(function () {
@@ -48,12 +48,12 @@ class FortifyServiceProvider extends ServiceProvider
             ]);
         });
 
+        Fortify::confirmPasswordView(function () {
+            return inertia()->render('Auth/ConfirmPassword');
+        });
+
         // Fortify::verifyEmailView(function () {
         //     return inertia()->render('Auth/VerifyEmail');
-        // });
-
-        // Fortify::confirmPasswordView(function () {
-        //     return inertia()->render('Auth/ConfirmPassword');
         // });
 
         // Fortify::twoFactorChallengeView(function () {
