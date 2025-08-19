@@ -65,6 +65,9 @@
         ],
         "wayfinder": [
             "@php artisan wayfinder:generate --path=resources/js/Http"
+        ],
+        "lint": [
+            "./vendor/bin/pint"
         ]
     },
     "extra": {

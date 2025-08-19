@@ -33,3 +33,12 @@ If you run into errors, you probably need to review the [Laravel Fortify](https:
 - Visit `app/Models/User.php` and add the `TwoFactorAuthenticatable` trait
 - Visit `app/Providers/FortifyServiceProvider.php` and uncomment `Fortify::twoFactorChallengeView`
 - Visit `config/fortify.php` and uncomment `Features::twoFactorAuthentication()`
+
+### Wayfinder Issues
+If you run into Node error screens, you may need to compule your Wayfinder types again.
+
+`composer wayfinder`
+
+### Other Helper Commands
+`npm run lint` - Runs ESLint
+`composer lint` - Runs Pint
