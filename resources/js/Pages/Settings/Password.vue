@@ -12,7 +12,7 @@ import { update } from '@/Http/actions/Laravel/Fortify/Http/Controllers/Password
         :reset-on-error="['password', 'password_confirmation', 'current_password']"
     >
         <div>
-            <p>Update Password</p>
+            <p>Change Password</p>
         </div>
 
         <div>
