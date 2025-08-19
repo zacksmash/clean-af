@@ -10,7 +10,7 @@ import Password from '@/Pages/Settings/Password.vue'
 import TwoFactorAuth from '@/Pages/Settings/TwoFactorAuth.vue'
 
 const user = computed(() => usePage().props.auth.user as User)
-const status = computed(() => usePage().props.status as string | undefined)
+const status = computed(() => usePage().props.status as string)
 const props = defineProps<{
     canUpdateProfile: boolean;
     canUpdatePassword?: boolean;
