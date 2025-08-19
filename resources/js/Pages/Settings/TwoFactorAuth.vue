@@ -4,13 +4,9 @@ import { Form, usePage } from '@inertiajs/vue3'
 import { store as enableTwoFactor, destroy as disableTwoFactor } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticationController'
 import { store as confirmTwoFactor } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ConfirmedTwoFactorAuthenticationController'
 import { store as regenerateRecoveryCodes } from '@/Http/actions/Laravel/Fortify/Http/Controllers/RecoveryCodeController'
-import { type User } from '@/Types'
+import { type AppPageProps } from '@/Types'
 
-interface PageProps {
-    auth: {
-        user: User;
-    };
-    status?: string;
+interface PageProps extends AppPageProps {
     twoFactorQrCodeUrl?: string;
     twoFactorQrCodeSvg?: string;
     twoFactorRecoveryCodes?: string[];
