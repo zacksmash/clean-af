@@ -35,7 +35,7 @@ If you run into errors, you probably need to review the [Laravel Fortify](https:
 - Visit `config/fortify.php` and uncomment `Features::twoFactorAuthentication()`
 
 ### Wayfinder Issues
-If you run into Node error screens, you may need to compule your Wayfinder types again.
+If you run into Node error screens, you may need to compile your Wayfinder types again.
 
 `composer wayfinder`
 
