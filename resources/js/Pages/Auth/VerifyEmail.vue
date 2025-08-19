@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Form, Head } from '@inertiajs/vue3'
-import { route } from 'ziggy-js'
+import { logout } from '@/Http/routes'
+import { store } from '@/Http/actions/Laravel/Fortify/Http/Controllers/EmailVerificationNotificationController'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
@@ -17,11 +18,11 @@ defineProps<{
             <mark>A new verification link has been sent to the email address you provided during registration.</mark>
         </div>
 
-        <Form :action="route('verification.send')" method="post">
+        <Form :action="store()">
             <button type="submit">Resend Verification Email</button>
         </Form>
 
-        <Form :action="route('logout')" method="post">
+        <Form :action="logout()">
             <button type="submit">Log out</button>
         </Form>
     </AuthLayout>

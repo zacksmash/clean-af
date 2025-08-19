@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Form, Head } from '@inertiajs/vue3'
-import { store } from '@/Routing/actions/Laravel/Fortify/Http/Controllers/ConfirmablePasswordController'
+import { store } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ConfirmablePasswordController'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>

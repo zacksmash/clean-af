@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { Form } from '@inertiajs/vue3'
+import { update } from '@/Http/actions/Laravel/Fortify/Http/Controllers/PasswordController'
 </script>
 
 <template>
     <Form
         v-slot="{ errors }"
-        :action="route('user-password.update')"
-        method="put"
+        :action="update()"
         error-bag="updatePassword"
         reset-on-success
         :reset-on-error="['password', 'password_confirmation', 'current_password']"

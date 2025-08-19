@@ -15,6 +15,7 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
             v-slot="{ errors }"
             :action="store()"
             :reset-on-success="['password']"
+            :reset-on-error="['password']"
         >
             <div>
                 <label for="email">Email</label>

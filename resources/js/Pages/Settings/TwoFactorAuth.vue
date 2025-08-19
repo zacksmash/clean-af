@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Form, usePage } from '@inertiajs/vue3'
+import { store, destroy } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticationController'
+import { store as confirmTwoFactor } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ConfirmedTwoFactorAuthenticationController'
+import { store as regenerateRecoveryCodes } from '@/Http/actions/Laravel/Fortify/Http/Controllers/RecoveryCodeController'
 
 const props = computed(() => usePage().props)
 </script>
@@ -8,13 +11,13 @@ const props = computed(() => usePage().props)
 <template>
     <div>
         <div v-if="! props.auth.user?.two_factor_secret">
-            <Form :action="route('two-factor.enable')" method="post">
+            <Form :action="store()">
                 <button type="submit">Enable Two-Factor Authentication</button>
             </Form>
         </div>
 
         <div v-else>
-            <Form :action="route('two-factor.disable')" method="delete">
+            <Form :action="destroy()">
                 <button type="submit">Disable Two-Factor Authentication</button>
             </Form>
 
@@ -37,7 +40,7 @@ const props = computed(() => usePage().props)
                     </a>
                 </div>
 
-                <Form method="post" :action="route('two-factor.confirm')">
+                <Form :action="confirmTwoFactor()">
                     <div>
                         <label>Enter current 2FA code from your authenticator application to confirm the setup has been successful.</label>
 
@@ -68,7 +71,7 @@ const props = computed(() => usePage().props)
                 {{ code }}
             </div>
 
-            <Form :action="route('two-factor.recovery-codes')" method="post">
+            <Form :action="regenerateRecoveryCodes()">
                 <button type="submit">Regenerate Recovery Codes</button>
             </Form>
         </div>

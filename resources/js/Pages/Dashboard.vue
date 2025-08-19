@@ -26,7 +26,7 @@ const props = defineProps<Props>()
     <AppLayout>
         <div>Logged in as {{ user?.name }}!</div>
 
-        <Form :action="logout()" method="post">
+        <Form :action="logout()">
             <button type="submit">Logout</button>
         </Form>
 

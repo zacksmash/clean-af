@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { Form, Head, Link } from '@inertiajs/vue3'
+import { login } from '@/Http/routes'
+import { store } from '@/Http/actions/Laravel/Fortify/Http/Controllers/NewPasswordController';
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 
@@ -15,8 +17,7 @@ defineProps<{
     <AuthLayout>
         <Form
             v-slot="{ errors }"
-            :action="route('password.update')"
-            method="post"
+            :action="store()"
             :transform="(data) => ({ ...data, token, email })"
             :reset-on-success="['password', 'password_confirmation']"
         >
@@ -74,7 +75,7 @@ defineProps<{
         </Form>
 
         <p>
-            Remembered your password? <Link :href="route('login')">Login</Link>
+            Remembered your password? <Link :href="login()">Login</Link>
         </p>
     </AuthLayout>
 </template>
