@@ -2,8 +2,6 @@ export type AppPageProps<T extends Record<string, unknown> = Record<string, unkn
     name: string;
     quote: { message: string; author: string };
     auth: Auth;
-    ziggy: Config & { location: string };
-    sidebarOpen: boolean;
 };
 
 export interface User {
