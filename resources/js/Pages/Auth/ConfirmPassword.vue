@@ -6,9 +6,9 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
 
 <template>
-    <Head title="Confirm Password"/>
-
     <AuthLayout>
+        <Head title="Confirm Password"/>
+
         <section>
             <p>Confirm Password</p>
         </section>

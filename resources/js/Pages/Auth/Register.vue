@@ -7,9 +7,9 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
 
 <template>
-    <Head title="Register"/>
-
     <AuthLayout>
+        <Head title="Register"/>
+
         <section>
             <p>Register</p>
         </section>

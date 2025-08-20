@@ -10,9 +10,9 @@ const showRecoveryCodeField = ref<boolean>(false)
 </script>
 
 <template>
-    <Head title="Two Factor Challenge"/>
-
     <AuthLayout>
+        <Head title="Two Factor Challenge"/>
+
         <section>
             <p>Two Factor Challenge</p>
 

@@ -8,9 +8,9 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
 
 <template>
-    <Head title="Login"/>
-
     <AuthLayout>
+        <Head title="Login"/>
+
         <section>
             <p>Log In</p>
         </section>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Form, Head, usePage } from '@inertiajs/vue3'
+import { Head, Link, usePage } from '@inertiajs/vue3'
 import { logout } from '@/Http/routes'
 import { type User } from '@/Types'
 
@@ -18,18 +18,18 @@ const props = defineProps<{
 }>()
 </script>
 <template>
-    <Head title="Dashboard"/>
-
     <AppLayout>
+        <Head title="Dashboard"/>
+
         <section>
             <div>Logged in as {{ user?.name }}!</div>
 
             <mark>{{ status }}</mark>
-        </section>
 
-        <Form :action="logout()">
-            <button type="submit">Log Out</button>
-        </Form>
+            <Link as="button" :href="logout()">
+                Log Out
+            </Link>
+        </section>
 
         <hr>
 

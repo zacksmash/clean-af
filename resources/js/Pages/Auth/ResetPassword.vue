@@ -12,9 +12,9 @@ defineProps<{
 </script>
 
 <template>
-    <Head title="Reset Password"/>
-
     <AuthLayout>
+        <Head title="Reset Password"/>
+
         <section>
             <p>Reset Password</p>
         </section>

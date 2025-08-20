@@ -11,9 +11,9 @@ defineProps<{
 </script>
 
 <template>
-    <Head title="Verify Email"/>
-
     <AuthLayout>
+        <Head title="Verify Email"/>
+
         <section>
             <p>Verify Your Email</p>
 
