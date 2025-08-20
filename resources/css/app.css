@@ -13,7 +13,7 @@
  */
 @layer components {
     input:not([type='checkbox']):not([type='radio']) {
-        @apply border border-gray-300 h-10 rounded-md px-2 outline-black;
+        @apply border border-gray-300 h-10 rounded-md px-2 outline-black hover:not-focus:shadow-sm transition-shadow;
     }
 
     input[type='checkbox'] {
@@ -21,7 +21,7 @@
     }
 
     button {
-        @apply inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150;
+        @apply inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 hover:bg-gray-100;
     }
 
     section {
