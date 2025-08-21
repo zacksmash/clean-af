@@ -1,4 +1,10 @@
 # clean af 🧼 - A Laravel starter kit that's clean af
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/zacksmash/clean-af.svg?style=flat-square)](https://packagist.org/packages/zacksmash/clean-af)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/zacksmash/clean-af/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/zacksmash/clean-af/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/zacksmash/clean-af/lint.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/zacksmash/clean-af/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/zacksmash/clean-af.svg?style=flat-square)](https://packagist.org/packages/zacksmash/clean-af)
+
 - Minimal Tailwind styles, that can be completely removed in the app.css if you want.
 - Uses [Laravel Fortify](https://laravel.com/docs/12.x/fortify) to handle authentication, 2FA, etc.
 - Uses [Laravel Wayfinder](https://github.com/laravel/wayfinder) for routing
