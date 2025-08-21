@@ -11,9 +11,9 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
     <AuthLayout>
         <Head title="Login"/>
 
-        <section>
+        <header>
             <p>Log In</p>
-        </section>
+        </header>
 
         <Form
             v-slot="{ errors }"
@@ -29,6 +29,7 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
                     type="email"
                     name="email"
                     autofocus
+                    required
                     :tabindex="1"
                     autocomplete="email"
                     placeholder="email@example.com"
@@ -73,10 +74,10 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
             <button type="submit">Log In</button>
         </Form>
 
-        <section>
+        <footer>
             <Link :href="forgotPassword()">Forgot Password</Link>
             &nbsp;
             <Link :href="register()">Register</Link>
-        </section>
+        </footer>
     </AuthLayout>
 </template>

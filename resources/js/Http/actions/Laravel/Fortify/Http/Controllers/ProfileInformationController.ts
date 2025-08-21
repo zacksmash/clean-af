@@ -1,4 +1,4 @@
-import { queryParams, type QueryParams } from './../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition } from './../../../../../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\ProfileInformationController::update
 * @see vendor/laravel/fortify/src/Http/Controllers/ProfileInformationController.php:21

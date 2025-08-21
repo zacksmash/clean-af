@@ -10,13 +10,16 @@ interface PageProps extends AppPageProps {
     twoFactorQrCodeUrl?: string;
     twoFactorQrCodeSvg?: string;
     twoFactorRecoveryCodes?: string[];
+    twoFactorConfirmed?: boolean;
 }
 
 const pageProps = computed(() => usePage().props as PageProps)
 </script>
 
 <template>
-    <div>
+    <section>
+        <p>Two-Factor Authentication</p>
+
         <template v-if="! pageProps.auth.user?.two_factor_secret">
             <Form :action="enableTwoFactor()">
                 <button type="submit">Enable Two-Factor Authentication</button>
@@ -29,25 +32,21 @@ const pageProps = computed(() => usePage().props as PageProps)
             </Form>
 
             <template v-if="pageProps.status === 'two-factor-authentication-enabled'">
-                <section>
-                    <p>
-                        Two factor authentication is now enabled. Please finish configuring two factor authentication below.
-                    </p>
+                <p>
+                    Two factor authentication is now enabled. Please finish configuring two factor authentication below.
+                </p>
 
-                    <p>
-                        Scan the QR code using your phone’s authenticator application, or click it to use an authenticator application on your current device.
-                    </p>
+                <p>
+                    Scan the QR code using your phone’s authenticator application, or click it to use an authenticator application on your current device.
+                </p>
 
-                    <div>
-                        <a
-                            :href="pageProps.twoFactorQrCodeUrl"
-                            rel="alternate"
-                            aria-label="2FA link"
-                        >
-                            <div v-html="pageProps.twoFactorQrCodeSvg"></div>
-                        </a>
-                    </div>
-                </section>
+                <a
+                    :href="pageProps.twoFactorQrCodeUrl"
+                    rel="alternate"
+                    aria-label="2FA link"
+                >
+                    <div v-html="pageProps.twoFactorQrCodeSvg"></div>
+                </a>
 
                 <Form :action="confirmTwoFactor()">
                     <div>
@@ -66,31 +65,25 @@ const pageProps = computed(() => usePage().props as PageProps)
 
                     <button type="submit">Confirm 2FA code</button>
                 </Form>
-
-                <section>
-                    <p>
-                        Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.
-                    </p>
-                </section>
             </template>
 
-            <template v-if="pageProps.status === 'two-factor-authentication-confirmed'">
-                <section>
-                    <p>
-                        Two factor authentication confirmed and enabled successfully.
-                    </p>
-                </section>
-            </template>
+            <template v-if="pageProps.twoFactorConfirmed">
+                <p>
+                    <strong>Two factor authentication confirmed and enabled successfully.</strong>
+                </p>
 
-            <section>
+                <p>
+                    Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.
+                </p>
+
                 <div v-for="code in pageProps.twoFactorRecoveryCodes" :key="code">
                     <pre>{{ code }}</pre>
                 </div>
-            </section>
 
-            <Form :action="regenerateRecoveryCodes()">
-                <button type="submit">Regenerate Recovery Codes</button>
-            </Form>
+                <Form :action="regenerateRecoveryCodes()">
+                    <button type="submit">Regenerate Recovery Codes</button>
+                </Form>
+            </template>
         </template>
-    </div>
+    </section>
 </template>

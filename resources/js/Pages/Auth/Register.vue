@@ -10,9 +10,9 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
     <AuthLayout>
         <Head title="Register"/>
 
-        <section>
+        <header>
             <p>Register</p>
-        </section>
+        </header>
 
         <Form
             v-slot="{ errors }"
@@ -95,8 +95,8 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
             <button type="submit">Register</button>
         </Form>
 
-        <section>
+        <footer>
             <Link :href="login()">Login</Link>
-        </section>
+        </footer>
     </AuthLayout>
 </template>

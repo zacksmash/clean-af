@@ -14,22 +14,22 @@ defineProps<{
     <AuthLayout>
         <Head title="Verify Email"/>
 
-        <section>
+        <header>
             <p>Verify Your Email</p>
 
             <div v-if="status === 'verification-link-sent'">
                 <mark>A new verification link has been sent to the email address you provided during registration.</mark>
             </div>
-        </section>
+        </header>
 
         <Form :action="sendVerificationEmail()">
             <button type="submit">Resend Verification Email</button>
         </Form>
 
-        <section>
+        <footer>
             <Link :href="logout()">
                 Log out
             </Link>
-        </section>
+        </footer>
     </AuthLayout>
 </template>

@@ -1,7 +1,7 @@
-import { queryParams, type QueryParams } from './../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition } from './../../../../../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::show
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:40
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:38
 * @route '/user/confirm-password'
 */
 export const show = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -19,7 +19,7 @@ show.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::show
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:40
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:38
 * @route '/user/confirm-password'
 */
 show.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -28,7 +28,7 @@ show.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::show
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:40
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:38
 * @route '/user/confirm-password'
 */
 show.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -41,7 +41,7 @@ show.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::show
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:40
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:38
 * @route '/user/confirm-password'
 */
 show.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -54,7 +54,7 @@ show.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::store
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:51
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:48
 * @route '/user/confirm-password'
 */
 export const store = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -72,7 +72,7 @@ store.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::store
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:51
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:48
 * @route '/user/confirm-password'
 */
 store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -81,7 +81,7 @@ store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::store
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:51
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:48
 * @route '/user/confirm-password'
 */
 store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

@@ -24,12 +24,16 @@
         @apply inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 hover:bg-gray-100;
     }
 
-    section {
-        @apply p-4;
+    a[href] {
+        @apply text-blue-500 hover:text-blue-700;
+    }
+
+    hr {
+        @apply border-t border-gray-300 my-4;
     }
 
     form {
-        @apply px-4;
+        @apply px-4 pt-4;
 
         > div {
             @apply mb-4;
@@ -44,11 +48,19 @@
         }
     }
 
-    a[href] {
-        @apply text-blue-500 hover:text-blue-700;
+    header {
+        @apply pt-4 px-4 flex flex-col gap-4;
     }
 
-    hr {
-        @apply border-t border-gray-300 my-4;
+    section {
+        @apply px-4 flex flex-col gap-4;
+
+        form {
+            @apply p-0;
+        }
+    }
+
+    footer {
+        @apply pt-4 px-4;
     }
 }

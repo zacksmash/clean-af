@@ -14,9 +14,13 @@ defineProps<{
     <AuthLayout>
         <Head title="Forgot Password"/>
 
-        <section>
+        <header>
             <p>Forgot Password</p>
-        </section>
+
+            <div v-if="status">
+                <mark>{{ status }}</mark>
+            </div>
+        </header>
 
         <Form
             v-slot="{ errors }"
@@ -38,17 +42,13 @@ defineProps<{
                 <div v-if="errors.email">
                     <mark>{{ errors.email }}</mark>
                 </div>
-
-                <div v-if="status">
-                    <mark>{{ status }}</mark>
-                </div>
             </div>
 
             <button type="submit">Send Password Reset Link</button>
         </Form>
 
-        <section>
+        <footer>
             <Link :href="login()">Login</Link>
-        </section>
+        </footer>
     </AuthLayout>
 </template>

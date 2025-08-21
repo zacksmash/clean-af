@@ -19,7 +19,8 @@ Route::get('dashboard', function () {
             ? auth()->user()->twoFactorQrCodeUrl()
             : null,
         'twoFactorRecoveryCodes' => auth()->user()->two_factor_secret
-            ? json_decode(decrypt(auth()->user()->two_factor_recovery_codes), true)
+            ? json_decode(decrypt(auth()->user()->two_factor_recovery_codes) ?? '', true)
             : [],
+        'twoFactorConfirmed' => (bool) auth()->user()->two_factor_confirmed_at,
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');

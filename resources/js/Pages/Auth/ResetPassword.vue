@@ -15,9 +15,9 @@ defineProps<{
     <AuthLayout>
         <Head title="Reset Password"/>
 
-        <section>
+        <header>
             <p>Reset Password</p>
-        </section>
+        </header>
 
         <Form
             v-slot="{ errors }"
@@ -78,8 +78,8 @@ defineProps<{
             <button type="submit">Reset Password</button>
         </Form>
 
-        <section>
+        <footer>
             <Link :href="login()">Login</Link>
-        </section>
+        </footer>
     </AuthLayout>
 </template>

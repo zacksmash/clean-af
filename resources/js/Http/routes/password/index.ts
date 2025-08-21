@@ -1,4 +1,4 @@
-import { queryParams, type QueryParams } from './../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, applyUrlDefaults } from './../../wayfinder'
 import confirm from './confirm'
 /**
 * @see \Laravel\Fortify\Http\Controllers\PasswordResetLinkController::request
@@ -204,7 +204,7 @@ update.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::confirm
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:40
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:38
 * @route '/user/confirm-password'
 */
 export const confirm = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -222,7 +222,7 @@ confirm.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::confirm
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:40
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:38
 * @route '/user/confirm-password'
 */
 confirm.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -231,7 +231,7 @@ confirm.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::confirm
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:40
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:38
 * @route '/user/confirm-password'
 */
 confirm.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -244,7 +244,7 @@ confirm.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmablePasswordController::confirm
-* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:40
+* @see vendor/laravel/fortify/src/Http/Controllers/ConfirmablePasswordController.php:38
 * @route '/user/confirm-password'
 */
 confirm.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

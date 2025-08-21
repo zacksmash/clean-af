@@ -1,9 +1,9 @@
-import { queryParams, type QueryParams } from './../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:98
 * @route '/storage/{path}'
 */
-export const local = (args: { path: string | number } | [path: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+const local = (args: { path: string | number } | [path: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'get',
 } => ({

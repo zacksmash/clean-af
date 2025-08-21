@@ -1,4 +1,4 @@
-import { queryParams, type QueryParams } from './../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition } from './../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
 * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
@@ -149,7 +149,7 @@ register.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 * @see routes/web.php:6
 * @route '/'
 */
-export const home = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+const home = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'get',
 } => ({
@@ -242,4 +242,3 @@ dashboard.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): 
     url: dashboard.url(options),
     method: 'head',
 })
-

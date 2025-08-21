@@ -21,26 +21,44 @@ const props = defineProps<{
     <AppLayout>
         <Head title="Dashboard"/>
 
-        <section>
-            <div>Logged in as {{ user?.name }}!</div>
+        <header>
+            <p>Logged in as {{ user?.name }}!</p>
 
-            <mark>{{ status }}</mark>
+            <div v-if="status">
+                <mark>{{ status }}</mark>
+            </div>
 
-            <Link as="button" :href="logout()">
-                Log Out
-            </Link>
-        </section>
+            <div>
+                <Link as="button" :href="logout()">
+                    Log Out
+                </Link>
+            </div>
+        </header>
 
-        <hr>
+        <template v-if="props.canUpdateProfile">
+            <hr>
 
-        <Profile v-if="props.canUpdateProfile"/>
+            <section>
+                <p>Update Profile</p>
 
-        <hr>
+                <Profile/>
+            </section>
+        </template>
 
-        <Password v-if="props.canUpdatePassword"/>
+        <template v-if="props.canUpdatePassword">
+            <hr>
 
-        <hr>
+            <section>
+                <p>Change Password</p>
 
-        <!-- <TwoFactorAuth v-if="props.canManageTwoFactorAuthentication"/> -->
+                <Password/>
+            </section>
+        </template>
+
+        <!-- <template v-if="props.canManageTwoFactorAuthentication">
+            <hr>
+
+            <TwoFactorAuth/>
+        </template> -->
     </AppLayout>
 </template>

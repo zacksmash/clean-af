@@ -9,9 +9,9 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
     <AuthLayout>
         <Head title="Confirm Password"/>
 
-        <section>
+        <header>
             <p>Confirm Password</p>
-        </section>
+        </header>
 
         <Form
             v-slot="{ errors }"

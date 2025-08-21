@@ -13,27 +13,25 @@ const showRecoveryCodeField = ref<boolean>(false)
     <AuthLayout>
         <Head title="Two Factor Challenge"/>
 
-        <section>
+        <header>
             <p>Two Factor Challenge</p>
 
-            <button v-if="!showCodeField" @click.prevent="showCodeField = true; showRecoveryCodeField = false">
-                Use Authentication Code
-            </button>
+            <div>
+                <button v-if="!showCodeField" @click.prevent="showCodeField = true; showRecoveryCodeField = false">
+                    Use Authentication Code
+                </button>
 
-            <button v-if="!showRecoveryCodeField" @click.prevent="showCodeField = false; showRecoveryCodeField = true">
-                Use Recovery Code
-            </button>
-        </section>
+                <button v-if="!showRecoveryCodeField" @click.prevent="showCodeField = false; showRecoveryCodeField = true">
+                    Use Recovery Code
+                </button>
+            </div>
+        </header>
 
         <Form
             v-slot="{ errors }"
             :action="twoFactorAuthenticate()"
         >
             <template v-if="showCodeField">
-                <p>
-                    Log in with Authentication Code
-                </p>
-
                 <div>
                     <label>Code</label>
 
@@ -51,10 +49,6 @@ const showRecoveryCodeField = ref<boolean>(false)
             </template>
 
             <template v-if="showRecoveryCodeField">
-                <p>
-                    Log in with recovery code
-                </p>
-
                 <div>
                     <label>Recovery Code</label>
 
