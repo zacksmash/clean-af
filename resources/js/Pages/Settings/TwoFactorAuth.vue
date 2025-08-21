@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Form, usePage } from '@inertiajs/vue3'
-import { destroy as disableTwoFactor, store as enableTwoFactor } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticationController'
-import { store as confirmTwoFactor } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ConfirmedTwoFactorAuthenticationController'
-import { store as regenerateRecoveryCodes } from '@/Http/actions/Laravel/Fortify/Http/Controllers/RecoveryCodeController'
+// import { destroy as disableTwoFactor, store as enableTwoFactor } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticationController'
+// import { store as confirmTwoFactor } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ConfirmedTwoFactorAuthenticationController'
+// import { store as regenerateRecoveryCodes } from '@/Http/actions/Laravel/Fortify/Http/Controllers/RecoveryCodeController'
 import { type AppPageProps } from '@/Types'
 
 interface PageProps extends AppPageProps {

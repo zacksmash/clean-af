@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Form, Head } from '@inertiajs/vue3'
-import { store as twoFactorAuthenticate } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticatedSessionController'
+// import { store as twoFactorAuthenticate } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticatedSessionController'
 
 import AuthLayout from '@/Layouts/AuthLayout.vue'
 

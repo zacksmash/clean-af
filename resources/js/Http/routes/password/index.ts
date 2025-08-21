@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, applyUrlDefaults } from './../../wayfinder'
+import { queryParams, type QueryParams } from './../../wayfinder'
 import confirm from './confirm'
 /**
 * @see \Laravel\Fortify\Http\Controllers\PasswordResetLinkController::request

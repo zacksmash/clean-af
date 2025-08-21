@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition } from './../../wayfinder'
+import { queryParams, type QueryParams } from './../../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\PasswordController::update
 * @see vendor/laravel/fortify/src/Http/Controllers/PasswordController.php:22
