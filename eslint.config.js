@@ -1,4 +1,3 @@
-import globals from 'globals'
 import vue from 'eslint-plugin-vue'
 import eslintPluginBetterTailwindcss from 'eslint-plugin-better-tailwindcss'
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
@@ -100,6 +99,5 @@ export default defineConfigWithVueTs(
             }],
             'vue/script-indent': ['error', 4, { 'switchCase': 1 }],
         },
-        languageOptions: { globals: globals.browser },
     },
 )
