@@ -41,6 +41,10 @@
             > label {
                 @apply block;
             }
+
+            > div {
+                @apply flex items-center;
+            }
         }
 
         label {
