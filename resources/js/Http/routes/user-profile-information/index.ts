@@ -1,28 +1,25 @@
-import { queryParams, type QueryParams } from './../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition } from './../../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\ProfileInformationController::update
 * @see vendor/laravel/fortify/src/Http/Controllers/ProfileInformationController.php:21
 * @route '/user/profile-information'
 */
-export const update = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'put',
-} => ({
+export const update = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(options),
     method: 'put',
 })
 
 update.definition = {
-    methods: ['put'],
+    methods: ["put"],
     url: '/user/profile-information',
-}
+} satisfies RouteDefinition<["put"]>
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ProfileInformationController::update
 * @see vendor/laravel/fortify/src/Http/Controllers/ProfileInformationController.php:21
 * @route '/user/profile-information'
 */
-update.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+update.url = (options?: RouteQueryOptions) => {
     return update.definition.url + queryParams(options)
 }
 
@@ -31,10 +28,7 @@ update.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 * @see vendor/laravel/fortify/src/Http/Controllers/ProfileInformationController.php:21
 * @route '/user/profile-information'
 */
-update.put = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'put',
-} => ({
+update.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(options),
     method: 'put',
 })
