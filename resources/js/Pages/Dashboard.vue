@@ -3,13 +3,11 @@ import { computed } from 'vue'
 import { Head, Link, usePage } from '@inertiajs/vue3'
 import { logout } from '@/Http/routes'
 
-import AppLayout from '@/Layouts/AppLayout.vue'
 import Profile from '@/Pages/Settings/Profile.vue'
 import Password from '@/Pages/Settings/Password.vue'
 // import TwoFactorAuth from '@/Pages/Settings/TwoFactorAuth.vue'
 
 const user = computed(() => usePage().props.auth.user)
-const status = computed(() => usePage().props.status)
 const props = defineProps<{
     canUpdateProfile: boolean;
     canUpdatePassword?: boolean;
@@ -17,15 +15,11 @@ const props = defineProps<{
 }>()
 </script>
 <template>
-    <AppLayout>
+    <div>
         <Head title="Dashboard"/>
 
         <header>
             <p>Logged in as {{ user?.name }}!</p>
-
-            <div v-if="status">
-                <mark>{{ status }}</mark>
-            </div>
 
             <div>
                 <Link as="button" :href="logout()">
@@ -59,5 +53,5 @@ const props = defineProps<{
 
             <TwoFactorAuth/>
         </template> -->
-    </AppLayout>
+    </div>
 </template>

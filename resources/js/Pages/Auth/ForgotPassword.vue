@@ -2,24 +2,14 @@
 import { Form, Head, Link } from '@inertiajs/vue3'
 import { store as sendPasswordResetLink } from '@/Http/actions/Laravel/Fortify/Http/Controllers/PasswordResetLinkController'
 import { login } from '@/Http/routes'
-
-import AuthLayout from '@/Layouts/AuthLayout.vue'
-
-defineProps<{
-    status?: string;
-}>()
 </script>
 
 <template>
-    <AuthLayout>
+    <div>
         <Head title="Forgot Password"/>
 
         <header>
             <p>Forgot Password</p>
-
-            <div v-if="status">
-                <mark>{{ status }}</mark>
-            </div>
         </header>
 
         <Form
@@ -50,5 +40,5 @@ defineProps<{
         <footer>
             <Link :href="login()">Login</Link>
         </footer>
-    </AuthLayout>
+    </div>
 </template>

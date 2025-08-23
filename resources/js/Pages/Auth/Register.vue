@@ -2,12 +2,10 @@
 import { Form, Head, Link } from '@inertiajs/vue3'
 import { store as register } from '@/Http/actions/Laravel/Fortify/Http/Controllers/RegisteredUserController'
 import { login } from '@/Http/routes'
-
-import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
 
 <template>
-    <AuthLayout>
+    <div>
         <Head title="Register"/>
 
         <header>
@@ -98,5 +96,5 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
         <footer>
             <Link :href="login()">Login</Link>
         </footer>
-    </AuthLayout>
+    </div>
 </template>

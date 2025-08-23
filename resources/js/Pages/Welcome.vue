@@ -1,6 +1,17 @@
 <script setup lang="ts">
+import { defineComponent, h } from 'vue'
 import { Head, Link } from '@inertiajs/vue3'
 import { dashboard, login, register } from '@/Http/routes'
+
+defineOptions({
+    layout: defineComponent({
+        name: 'DefaultLayout',
+
+        setup(_, { slots }) {
+            return () => h('div', [slots.default && slots.default()])
+        },
+    }),
+})
 </script>
 
 <template>

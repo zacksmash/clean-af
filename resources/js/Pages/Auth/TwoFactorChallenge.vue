@@ -3,14 +3,12 @@ import { ref } from 'vue'
 import { Form, Head } from '@inertiajs/vue3'
 // import { store as twoFactorAuthenticate } from '@/Http/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticatedSessionController'
 
-import AuthLayout from '@/Layouts/AuthLayout.vue'
-
 const showCodeField = ref<boolean>(true)
 const showRecoveryCodeField = ref<boolean>(false)
 </script>
 
 <template>
-    <AuthLayout>
+    <div>
         <Head title="Two Factor Challenge"/>
 
         <header>
@@ -66,5 +64,5 @@ const showRecoveryCodeField = ref<boolean>(false)
 
             <button type="submit">Login</button>
         </Form>
-    </AuthLayout>
+    </div>
 </template>

@@ -3,15 +3,13 @@ import { Form, Head, Link } from '@inertiajs/vue3'
 // import { store as sendVerificationEmail } from '@/Http/actions/Laravel/Fortify/Http/Controllers/EmailVerificationNotificationController'
 import { logout } from '@/Http/routes'
 
-import AuthLayout from '@/Layouts/AuthLayout.vue'
-
 defineProps<{
     status?: string;
 }>()
 </script>
 
 <template>
-    <AuthLayout>
+    <div>
         <Head title="Verify Email"/>
 
         <header>
@@ -31,5 +29,5 @@ defineProps<{
                 Log out
             </Link>
         </footer>
-    </AuthLayout>
+    </div>
 </template>

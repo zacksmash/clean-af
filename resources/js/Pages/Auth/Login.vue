@@ -3,12 +3,10 @@ import { Form, Head, Link } from '@inertiajs/vue3'
 import { store as authenticate } from '@/Http/actions/Laravel/Fortify/Http/Controllers/AuthenticatedSessionController'
 import { request as forgotPassword } from '@/Http/routes/password'
 import { register } from '@/Http/routes'
-
-import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
 
 <template>
-    <AuthLayout>
+    <div>
         <Head title="Login"/>
 
         <header>
@@ -79,5 +77,5 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
             &nbsp;
             <Link :href="register()">Register</Link>
         </footer>
-    </AuthLayout>
+    </div>
 </template>

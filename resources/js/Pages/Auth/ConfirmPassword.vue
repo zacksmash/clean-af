@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { Form, Head } from '@inertiajs/vue3'
 import { store as confirmPassword } from '@/Http/actions/Laravel/Fortify/Http/Controllers/ConfirmablePasswordController'
-
-import AuthLayout from '@/Layouts/AuthLayout.vue'
 </script>
 
 <template>
-    <AuthLayout>
+    <div>
         <Head title="Confirm Password"/>
 
         <header>
@@ -37,5 +35,5 @@ import AuthLayout from '@/Layouts/AuthLayout.vue'
 
             <button type="submit">Confirm Password</button>
         </Form>
-    </AuthLayout>
+    </div>
 </template>

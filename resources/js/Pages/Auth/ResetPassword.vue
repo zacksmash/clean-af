@@ -3,8 +3,6 @@ import { Form, Head, Link } from '@inertiajs/vue3'
 import { store as resetPassword } from '@/Http/actions/Laravel/Fortify/Http/Controllers/NewPasswordController'
 import { login } from '@/Http/routes'
 
-import AuthLayout from '@/Layouts/AuthLayout.vue'
-
 defineProps<{
     token?: string;
     email?: string;
@@ -12,7 +10,7 @@ defineProps<{
 </script>
 
 <template>
-    <AuthLayout>
+    <div>
         <Head title="Reset Password"/>
 
         <header>
@@ -81,5 +79,5 @@ defineProps<{
         <footer>
             <Link :href="login()">Login</Link>
         </footer>
-    </AuthLayout>
+    </div>
 </template>
