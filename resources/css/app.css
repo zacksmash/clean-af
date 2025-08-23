@@ -46,6 +46,10 @@
             > div {
                 @apply flex items-center;
             }
+
+            mark {
+                @apply mt-1 bg-red-200 text-red-900 border-red-300 text-xs;
+            }
         }
 
         label {
@@ -67,5 +71,9 @@
 
     footer {
         @apply pt-4 px-4;
+    }
+
+    mark {
+        @apply bg-green-200 text-green-900 p-1 px-2 rounded-md border border-green-300 text-sm;
     }
 }
