@@ -15,12 +15,12 @@ createServer(
             render: renderToString,
             title: (title) => (title ? `${title} - ${appName}` : appName),
             resolve: (name) => {
-                    const component = resolvePageComponent(`./pages/${name}.vue`, import.meta.glob<DefineComponent>('./pages/**/*.vue'))
+                const component = resolvePageComponent(`./pages/${name}.vue`, import.meta.glob<DefineComponent>('./pages/**/*.vue'))
 
-                    component.then((page) => page.default.layout = page.default.layout || AppLayout)
+                component.then((page) => page.default.layout = page.default.layout || AppLayout)
 
-                    return component
-                },
+                return component
+            },
             setup: ({ App, props, plugin }) => createSSRApp({ render: () => h(App, props) }).use(plugin),
         }),
     { cluster: true },
