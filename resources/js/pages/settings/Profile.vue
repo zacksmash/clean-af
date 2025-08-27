@@ -8,7 +8,7 @@ const user = computed(() => usePage().props.auth.user)
 
 <template>
     <Form
-        v-slot="{ errors }"
+        v-slot="{ errors, processing }"
         v-bind="ProfileInformationController.update.form()"
     >
         <div>
@@ -46,6 +46,6 @@ const user = computed(() => usePage().props.auth.user)
             </div>
         </div>
 
-        <button type="submit">Update Profile</button>
+        <button type="submit" :disabled="processing">Update Profile</button>
     </Form>
 </template>

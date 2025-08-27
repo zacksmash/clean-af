@@ -12,7 +12,7 @@ import ConfirmablePasswordController from '@/wayfinder/actions/Laravel/Fortify/H
         </header>
 
         <Form
-            v-slot="{ errors }"
+            v-slot="{ errors, processing }"
             v-bind="ConfirmablePasswordController.store.form()"
             reset-on-success
         >
@@ -33,7 +33,7 @@ import ConfirmablePasswordController from '@/wayfinder/actions/Laravel/Fortify/H
                 </div>
             </div>
 
-            <button type="submit">Confirm Password</button>
+            <button type="submit" :disabled="processing">Confirm Password</button>
         </Form>
     </div>
 </template>

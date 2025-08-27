@@ -21,7 +21,7 @@ const inputEmail = ref(props.email)
         </header>
 
         <Form
-            v-slot="{ errors }"
+            v-slot="{ errors, processing }"
             v-bind="NewPasswordController.store.form()"
             :transform="(data) => ({ ...data, token, email })"
             :reset-on-success="['password', 'password_confirmation']"
@@ -76,7 +76,7 @@ const inputEmail = ref(props.email)
                 </div>
             </div>
 
-            <button type="submit">Reset Password</button>
+            <button type="submit" :disabled="processing">Reset Password</button>
         </Form>
 
         <footer>

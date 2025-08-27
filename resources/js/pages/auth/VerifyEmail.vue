@@ -22,8 +22,8 @@ defineProps<{
             </div>
         </header>
 
-        <Form v-bind="EmailVerificationNotificationController.store.form()">
-            <button type="submit">Resend Verification Email</button>
+        <Form v-slot="{ processing }" v-bind="EmailVerificationNotificationController.store.form()">
+            <button type="submit" :disabled="processing">Resend Verification Email</button>
         </Form>
 
         <footer>

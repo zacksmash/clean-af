@@ -13,7 +13,7 @@ import { login } from '@/wayfinder/routes'
         </header>
 
         <Form
-            v-slot="{ errors }"
+            v-slot="{ errors, processing }"
             v-bind="RegisteredUserController.store.form()"
             :reset-on-success="['password', 'password_confirmation']"
         >
@@ -90,7 +90,7 @@ import { login } from '@/wayfinder/routes'
                 </div>
             </div>
 
-            <button type="submit">Register</button>
+            <button type="submit" :disabled="processing">Register</button>
         </Form>
 
         <footer>

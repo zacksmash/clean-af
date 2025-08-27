@@ -5,7 +5,7 @@ import PasswordController from '@/wayfinder/actions/Laravel/Fortify/Http/Control
 
 <template>
     <Form
-        v-slot="{ errors }"
+        v-slot="{ errors, processing }"
         v-bind="PasswordController.update.form()"
         error-bag="updatePassword"
         reset-on-success
@@ -61,6 +61,6 @@ import PasswordController from '@/wayfinder/actions/Laravel/Fortify/Http/Control
             </div>
         </div>
 
-        <button type="submit">Change Password</button>
+        <button type="submit" :disabled="processing">Change Password</button>
     </Form>
 </template>

@@ -18,7 +18,7 @@ defineProps<{
             <mark v-if="status">{{ status }}</mark>
         </header>
 
-        <Form v-slot="{ errors }" v-bind="PasswordResetLinkController.store.form()">
+        <Form v-slot="{ errors, processing }" v-bind="PasswordResetLinkController.store.form()">
             <div>
                 <label for="email">Email</label>
 
@@ -36,7 +36,7 @@ defineProps<{
                 </div>
             </div>
 
-            <button type="submit">Send Password Reset Link</button>
+            <button type="submit" :disabled="processing">Send Password Reset Link</button>
         </Form>
 
         <footer>

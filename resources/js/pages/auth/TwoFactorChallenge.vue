@@ -34,7 +34,7 @@ const showRecoveryCodeField = ref<boolean>(false)
         </header>
 
         <Form
-            v-slot="{ errors }"
+            v-slot="{ errors, processing }"
             v-bind="TwoFactorAuthenticatedSessionController.store.form()"
             :reset-on-error="['code', 'recovery_code']"
         >
@@ -71,7 +71,7 @@ const showRecoveryCodeField = ref<boolean>(false)
                 </div>
             </template>
 
-            <button type="submit">Login</button>
+            <button type="submit" :disabled="processing">Login</button>
         </Form>
     </div>
 </template>

@@ -21,14 +21,14 @@ const pageProps = computed(() => usePage().props as PageProps)
         <p>Two-Factor Authentication</p>
 
         <template v-if="! pageProps.auth.user?.two_factor_secret">
-            <Form v-bind="TwoFactorAuthenticationController.store.form()">
-                <button type="submit">Enable Two-Factor Authentication</button>
+            <Form v-slot="{ processing }" v-bind="TwoFactorAuthenticationController.store.form()">
+                <button type="submit" :disabled="processing">Enable Two-Factor Authentication</button>
             </Form>
         </template>
 
         <template v-else>
-            <Form v-bind="TwoFactorAuthenticationController.destroy.form()">
-                <button type="submit">Disable Two-Factor Authentication</button>
+            <Form v-slot="{ processing }" v-bind="TwoFactorAuthenticationController.destroy.form()">
+                <button type="submit" :disabled="processing">Disable Two-Factor Authentication</button>
             </Form>
 
             <template v-if="pageProps.status === 'two-factor-authentication-enabled'">
@@ -48,7 +48,7 @@ const pageProps = computed(() => usePage().props as PageProps)
                     <div v-html="pageProps.twoFactorQrCodeSvg"></div>
                 </a>
 
-                <Form v-bind="ConfirmedTwoFactorAuthenticationController.store.form()">
+                <Form v-slot="{ processing }" v-bind="ConfirmedTwoFactorAuthenticationController.store.form()">
                     <div>
                         <label>
                             Enter current 2FA code from your authenticator application to confirm the setup has been successful.
@@ -63,7 +63,7 @@ const pageProps = computed(() => usePage().props as PageProps)
                         >
                     </div>
 
-                    <button type="submit">Confirm 2FA code</button>
+                    <button type="submit" :disabled="processing">Confirm 2FA code</button>
                 </Form>
             </template>
 
@@ -80,8 +80,8 @@ const pageProps = computed(() => usePage().props as PageProps)
                     <pre>{{ code }}</pre>
                 </div>
 
-                <Form v-bind="RecoveryCodeController.store.form()">
-                    <button type="submit">Regenerate Recovery Codes</button>
+                <Form v-slot="{ processing }" v-bind="RecoveryCodeController.store.form()">
+                    <button type="submit" :disabled="processing">Regenerate Recovery Codes</button>
                 </Form>
             </template>
         </template>

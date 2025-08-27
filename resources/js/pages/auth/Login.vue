@@ -20,7 +20,7 @@ defineProps<{
         </header>
 
         <Form
-            v-slot="{ errors }"
+            v-slot="{ errors, processing }"
             v-bind="AuthenticatedSessionController.store.form()"
             :reset-on-success="['password']"
         >
@@ -74,7 +74,7 @@ defineProps<{
                 </div>
             </div>
 
-            <button type="submit">Log In</button>
+            <button type="submit" :disabled="processing">Log In</button>
         </Form>
 
         <footer>
