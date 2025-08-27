@@ -3,6 +3,11 @@ import { Form, Head, Link } from '@inertiajs/vue3'
 import AuthenticatedSessionController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/AuthenticatedSessionController'
 import { request } from '@/wayfinder/routes/password'
 import { register } from '@/wayfinder/routes'
+import AuthLayout from '@/layouts/AuthLayout.vue'
+
+defineOptions({
+    layout: AuthLayout,
+})
 
 defineProps<{
     status?: string;

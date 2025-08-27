@@ -2,6 +2,11 @@
 import { Form, Head, Link } from '@inertiajs/vue3'
 import RegisteredUserController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/RegisteredUserController'
 import { login } from '@/wayfinder/routes'
+import AuthLayout from '@/layouts/AuthLayout.vue'
+
+defineOptions({
+    layout: AuthLayout,
+})
 </script>
 
 <template>

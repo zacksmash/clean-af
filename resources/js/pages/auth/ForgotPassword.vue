@@ -2,6 +2,11 @@
 import { Form, Head, Link } from '@inertiajs/vue3'
 import PasswordResetLinkController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/PasswordResetLinkController'
 import { login } from '@/wayfinder/routes'
+import AuthLayout from '@/layouts/AuthLayout.vue'
+
+defineOptions({
+    layout: AuthLayout,
+})
 
 defineProps<{
     status?: string;

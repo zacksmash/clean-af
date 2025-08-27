@@ -2,6 +2,11 @@
 import { Form, Head, Link } from '@inertiajs/vue3'
 // import EmailVerificationNotificationController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/EmailVerificationNotificationController'
 import { logout } from '@/wayfinder/routes'
+import AuthLayout from '@/layouts/AuthLayout.vue'
+
+defineOptions({
+    layout: AuthLayout,
+})
 
 defineProps<{
     status?: string;

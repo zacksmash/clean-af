@@ -3,6 +3,11 @@ import { ref } from 'vue'
 import { Form, Head, Link } from '@inertiajs/vue3'
 import NewPasswordController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/NewPasswordController'
 import { login } from '@/wayfinder/routes'
+import AuthLayout from '@/layouts/AuthLayout.vue'
+
+defineOptions({
+    layout: AuthLayout,
+})
 
 const props = defineProps<{
     token?: string;

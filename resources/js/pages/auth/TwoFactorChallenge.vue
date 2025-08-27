@@ -2,6 +2,11 @@
 import { ref } from 'vue'
 import { Form, Head } from '@inertiajs/vue3'
 // import TwoFactorAuthenticatedSessionController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticatedSessionController'
+import AuthLayout from '@/layouts/AuthLayout.vue'
+
+defineOptions({
+    layout: AuthLayout,
+})
 
 const showCodeField = ref<boolean>(true)
 const showRecoveryCodeField = ref<boolean>(false)
