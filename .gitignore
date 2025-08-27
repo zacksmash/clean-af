@@ -4,6 +4,7 @@
 /public/build
 /public/hot
 /public/storage
+/resources/js/wayfinder
 /storage/*.key
 /storage/pail
 /vendor
