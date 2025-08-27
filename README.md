@@ -34,15 +34,15 @@ If you run into errors, you'll probably need to review the [Laravel Fortify](htt
 - Visit `app/Models/User.php` and implement the `MustVerifyEmail` interface.
 - Visit `app/Providers/FortifyServiceProvider.php` and uncomment `Fortify::verifyEmailView`
 - Visit `config/fortify.php` and uncomment `Features::emailVerification()`
-- Visit `resources/js/Pages/Auth/VerifyEmail.vue` and uncomment the import
+- Visit `resources/js/pages/auth/VerifyEmail.vue` and uncomment the import
 
 ### Two-Factor Authentication
 - Visit `app/Models/User.php` and use the `TwoFactorAuthenticatable` trait
 - Visit `app/Providers/FortifyServiceProvider.php` and uncomment `Fortify::twoFactorChallengeView`
 - Visit `config/fortify.php` and uncomment `Features::twoFactorAuthentication()`
-- Visit `resources/js/Pages/Dashboard.vue` and uncomment the `TwoFactorAuth` import and component
-- Visit `resources/js/Pages/Settings/TwoFactorAuth.vue` and uncomment the imports
-- Visit `resources/js/Pages/Auth/TwoFactorChallenge.vue` and uncomment the import
+- Visit `resources/js/pages/auth/TwoFactorChallenge.vue` and uncomment the import
+- Visit `resources/js/pages/settings/TwoFactorAuth.vue` and uncomment the imports
+- Visit `resources/js/pages/Dashboard.vue` and uncomment the `TwoFactorAuth` import and component
 
 ### Wayfinder Issues
 If you run into Node error screens, you may need to compile the Wayfinder types again.
