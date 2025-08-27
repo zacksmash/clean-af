@@ -59,6 +59,10 @@
 
     header {
         @apply pt-4 px-4 flex flex-col gap-4;
+
+        > div mark {
+            @apply bg-blue-200 text-blue-900 p-1 px-2 rounded-md border border-blue-300 text-sm;
+        }
     }
 
     section {

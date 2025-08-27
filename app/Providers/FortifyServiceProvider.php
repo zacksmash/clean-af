@@ -30,34 +30,34 @@ class FortifyServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Fortify::registerView(function () {
-            return inertia()->render('Auth/Register');
+            return inertia()->render('auth/Register');
         });
 
         Fortify::loginView(function () {
-            return inertia()->render('Auth/Login');
+            return inertia()->render('auth/Login');
         });
 
         Fortify::requestPasswordResetLinkView(function () {
-            return inertia()->render('Auth/ForgotPassword');
+            return inertia()->render('auth/ForgotPassword');
         });
 
         Fortify::resetPasswordView(function (Request $request) {
-            return inertia()->render('Auth/ResetPassword', [
+            return inertia()->render('auth/ResetPassword', [
                 'token' => $request->route('token'),
                 'email' => $request->query('email'),
             ]);
         });
 
         Fortify::confirmPasswordView(function () {
-            return inertia()->render('Auth/ConfirmPassword');
+            return inertia()->render('auth/ConfirmPassword');
         });
 
         // Fortify::verifyEmailView(function () {
-        //     return inertia()->render('Auth/VerifyEmail');
+        //     return inertia()->render('auth/VerifyEmail');
         // });
 
         // Fortify::twoFactorChallengeView(function () {
-        //     return inertia()->render('Auth/TwoFactorChallenge');
+        //     return inertia()->render('auth/TwoFactorChallenge');
         // });
 
         Fortify::createUsersUsing(CreateNewUser::class);

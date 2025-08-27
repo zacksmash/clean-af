@@ -69,7 +69,7 @@
             "@php artisan test"
         ],
         "wayfinder": [
-            "@php artisan wayfinder:generate --path=resources/js/Http"
+            "@php artisan wayfinder:generate --path=resources/js/wayfinder --with-form"
         ],
         "lint": [
             "./vendor/bin/pint"
