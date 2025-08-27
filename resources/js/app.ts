@@ -5,27 +5,18 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import type { DefineComponent } from 'vue'
 import { createApp, h } from 'vue'
 
-import AppLayout from '@/Layouts/AppLayout.vue'
-import AuthLayout from '@/Layouts/AuthLayout.vue'
+import AppLayout from '@/layouts/AppLayout.vue'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
 createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),
     resolve: (name) => {
-        const page = resolvePageComponent(`./Pages/${name}.vue`,
-            import.meta.glob<DefineComponent>('./Pages/**/*.vue'),
-        )
+        const component = resolvePageComponent(`./pages/${name}.vue`, import.meta.glob<DefineComponent>('./pages/**/*.vue'))
 
-        page.then((module) => {
-            if (name.includes('Auth/')) {
-                return module.default.layout = module.default.layout || AuthLayout
-            }
+        component.then((page) => page.default.layout = page.default.layout || AppLayout)
 
-            module.default.layout = module.default.layout || AppLayout
-        })
-
-        return page
+        return component
     },
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
