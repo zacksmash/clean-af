@@ -1,6 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import axios from 'axios'
-import { nextTick, reactive, ref } from 'vue'
+import { Ref, nextTick, reactive, ref } from 'vue'
 import ConfirmablePasswordController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/ConfirmablePasswordController'
 import { confirmation } from '@/wayfinder/routes/password'
 
@@ -14,7 +14,7 @@ const form = reactive({
     processing: false,
 })
 
-const passwordInput = ref(null)
+const passwordInput: Ref<HTMLInputElement | null> = ref(null)
 
 const startConfirmingPassword = () => {
     axios.get(confirmation.url()).then(response => {
@@ -23,7 +23,7 @@ const startConfirmingPassword = () => {
         } else {
             confirmingPassword.value = true
 
-            nextTick(() => passwordInput.value.focus())
+            nextTick(() => passwordInput.value?.focus())
         }
     })
 }
@@ -41,7 +41,7 @@ const confirmPassword = () => {
     }).catch(error => {
         form.processing = false
         form.error = error.response.data.errors.password[0]
-        passwordInput.value.focus()
+        passwordInput.value?.focus()
     })
 }
 
@@ -60,6 +60,13 @@ const closeModal = () => {
 
         <dialog :open="confirmingPassword">
             <form>
+                <input
+                    type="text"
+                    name="email"
+                    autocomplete="username email"
+                    style="display: none;"
+                >
+
                 <div>
                     <input
                         ref="passwordInput"

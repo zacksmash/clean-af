@@ -123,17 +123,17 @@ const disableTwoFactorAuthentication = () => {
         </small>
 
         <small>
-            When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.
+            When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your preferred authenticator application.
         </small>
 
         <template v-if="twoFactorEnabled">
             <template v-if="qrCode">
                 <small v-if="confirming">
-                    To finish enabling two factor authentication, scan the following QR code using your phone's authenticator application or enter the setup key and provide the generated OTP code.
+                    To finish enabling two factor authentication, scan the following QR code using your preferred authenticator application or enter the setup key and provide the generated OTP code.
                 </small>
 
                 <small v-else>
-                    Two factor authentication is now enabled. Scan the following QR code using your phone's authenticator application or enter the setup key.
+                    Two factor authentication is now enabled. Scan the following QR code using your preferred authenticator application or enter the setup key.
                 </small>
 
                 <div>

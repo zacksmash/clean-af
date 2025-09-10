@@ -11,6 +11,13 @@ import PasswordController from '@/wayfinder/actions/Laravel/Fortify/Http/Control
         reset-on-success
         :reset-on-error="['password', 'password_confirmation', 'current_password']"
     >
+        <input
+            type="text"
+            name="email"
+            autocomplete="username email"
+            style="display: none;"
+        >
+
         <div>
             <label for="current_password">Password</label>
 
