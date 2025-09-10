@@ -6,21 +6,6 @@ import { confirmation } from '@/wayfinder/routes/password'
 
 const emit = defineEmits(['confirmed'])
 
-defineProps({
-    title: {
-        type: String,
-        default: 'Confirm Password',
-    },
-    content: {
-        type: String,
-        default: 'For your security, please confirm your password to continue.',
-    },
-    button: {
-        type: String,
-        default: 'Confirm',
-    },
-})
-
 const confirmingPassword = ref(false)
 
 const form = reactive({
@@ -94,7 +79,7 @@ const closeModal = () => {
                     :disabled="form.processing"
                     @click="confirmPassword"
                 >
-                    {{ button }}
+                    Confirm
                 </button>
 
                 <button type="button" @click="closeModal">
