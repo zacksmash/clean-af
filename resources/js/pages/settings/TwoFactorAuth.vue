@@ -1,89 +1,226 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { Form, usePage } from '@inertiajs/vue3'
+import axios from 'axios'
+import { computed, ref, watch } from 'vue'
+import { router, useForm, usePage } from '@inertiajs/vue3'
 // import TwoFactorAuthenticationController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/TwoFactorAuthenticationController'
-// import ConfirmedTwoFactorAuthenticationController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/ConfirmedTwoFactorAuthenticationController'
+// import TwoFactorQrCodeController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/TwoFactorQrCodeController'
+// import TwoFactorSecretKeyController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/TwoFactorSecretKeyController'
 // import RecoveryCodeController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/RecoveryCodeController'
-import { type AppPageProps } from '@/types'
+// import ConfirmedTwoFactorAuthenticationController from '@/wayfinder/actions/Laravel/Fortify/Http/Controllers/ConfirmedTwoFactorAuthenticationController'
 
-interface PageProps extends AppPageProps {
-    twoFactorQrCodeUrl?: string;
-    twoFactorQrCodeSvg?: string;
-    twoFactorRecoveryCodes?: string[];
-    twoFactorConfirmed?: boolean;
+import ConfirmsPassword from '@/components/ConfirmsPassword.vue'
+
+const props = defineProps({
+    requiresConfirmation: Boolean,
+})
+
+const page = usePage()
+const enabling = ref(false)
+const confirming = ref(false)
+const disabling = ref(false)
+const qrCode = ref(null as { svg: string; url: string } | null)
+const setupKey = ref(null)
+const recoveryCodes = ref([])
+
+const confirmationForm = useForm({
+    code: '',
+})
+
+const twoFactorEnabled = computed(
+    () => ! enabling.value && page.props.auth.user?.two_factor_enabled,
+)
+
+watch(twoFactorEnabled, () => {
+    if (! twoFactorEnabled.value) {
+        confirmationForm.reset()
+        confirmationForm.clearErrors()
+    }
+})
+
+const enableTwoFactorAuthentication = () => {
+    enabling.value = true
+
+    router.post(TwoFactorAuthenticationController.store.url(), {}, {
+        preserveScroll: true,
+        onSuccess: () => Promise.all([
+            showQrCode(),
+            showSetupKey(),
+            showRecoveryCodes(),
+        ]),
+        onFinish: () => {
+            enabling.value = false
+            confirming.value = props.requiresConfirmation
+        },
+    })
 }
 
-const pageProps = computed(() => usePage().props as PageProps)
+const showQrCode = async () => {
+    const response = await axios.get(TwoFactorQrCodeController.show.url())
+    qrCode.value = {
+        svg: response.data.svg,
+        url: response.data.url,
+    }
+}
+
+const showSetupKey = async () => {
+    const response = await axios.get(TwoFactorSecretKeyController.show.url())
+    setupKey.value = response.data.secretKey
+}
+
+const showRecoveryCodes = async () => {
+    const response = await axios.get(RecoveryCodeController.index.url())
+    recoveryCodes.value = response.data
+}
+
+const confirmTwoFactorAuthentication = () => {
+    confirmationForm.post(ConfirmedTwoFactorAuthenticationController.store.url(), {
+        errorBag: 'confirmTwoFactorAuthentication',
+        preserveScroll: true,
+        preserveState: true,
+        onSuccess: () => {
+            confirming.value = false
+            qrCode.value = null
+            setupKey.value = null
+        },
+    })
+}
+
+const regenerateRecoveryCodes = () => {
+    axios
+        .post(RecoveryCodeController.store.url())
+        .then(() => showRecoveryCodes())
+}
+
+const disableTwoFactorAuthentication = () => {
+    disabling.value = true
+
+    router.delete(TwoFactorAuthenticationController.destroy(), {
+        preserveScroll: true,
+        onSuccess: () => {
+            disabling.value = false
+            confirming.value = false
+        },
+    })
+}
 </script>
 
 <template>
     <section>
-        <p>Two-Factor Authentication</p>
+        <p>
+            Two Factor Authentication
+        </p>
 
-        <template v-if="! pageProps.auth.user?.two_factor_secret">
-            <Form v-slot="{ processing }" v-bind="TwoFactorAuthenticationController.store.form()">
-                <button type="submit" :disabled="processing">Enable Two-Factor Authentication</button>
-            </Form>
-        </template>
+        <small v-if="twoFactorEnabled && ! confirming">
+            You have enabled two factor authentication.
+        </small>
 
-        <template v-else>
-            <Form v-slot="{ processing }" v-bind="TwoFactorAuthenticationController.destroy.form()">
-                <button type="submit" :disabled="processing">Disable Two-Factor Authentication</button>
-            </Form>
+        <small v-else-if="twoFactorEnabled && confirming">
+            Finish enabling two factor authentication.
+        </small>
 
-            <template v-if="pageProps.status === 'two-factor-authentication-enabled'">
-                <p>
-                    Two factor authentication is now enabled. Please finish configuring two factor authentication below.
-                </p>
+        <small v-else>
+            You have not enabled two factor authentication.
+        </small>
 
-                <p>
-                    Scan the QR code using your phone’s authenticator application, or click it to use an authenticator application on your current device.
-                </p>
+        <small>
+            When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your preferred authenticator application.
+        </small>
 
-                <a
-                    :href="pageProps.twoFactorQrCodeUrl"
-                    rel="alternate"
-                    aria-label="2FA link"
-                >
-                    <div v-html="pageProps.twoFactorQrCodeSvg"></div>
-                </a>
+        <template v-if="twoFactorEnabled">
+            <template v-if="qrCode">
+                <small v-if="confirming">
+                    To finish enabling two factor authentication, scan the following QR code using your preferred authenticator application or enter the setup key and provide the generated OTP code.
+                </small>
 
-                <Form v-slot="{ processing }" v-bind="ConfirmedTwoFactorAuthenticationController.store.form()">
+                <small v-else>
+                    Two factor authentication is now enabled. Scan the following QR code using your preferred authenticator application or enter the setup key.
+                </small>
+
+                <div>
+                    <a :href="qrCode.url" target="_blank">
+                        <div v-html="qrCode.svg"/>
+                    </a>
+                </div>
+
+                <template v-if="setupKey">
+                    <small>
+                        Setup Key: <span v-html="setupKey"></span>
+                    </small>
+                </template>
+
+                <form v-if="confirming">
                     <div>
-                        <label>
-                            Enter current 2FA code from your authenticator application to confirm the setup has been successful.
-                        </label>
+                        <label for="code">Code</label>
 
                         <input
+                            id="code"
+                            v-model="confirmationForm.code"
                             type="text"
                             name="code"
-                            required
+                            inputmode="numeric"
                             autofocus
-                            autocomplete="off"
+                            autocomplete="one-time-code"
+                            @keyup.enter="confirmTwoFactorAuthentication"
                         >
                     </div>
 
-                    <button type="submit" :disabled="processing">Confirm 2FA code</button>
-                </Form>
+                    <div v-if="confirmationForm.errors.code">
+                        <mark>{{ confirmationForm.errors.code }}</mark>
+                    </div>
+                </form>
             </template>
 
-            <template v-if="pageProps.twoFactorConfirmed">
-                <p>
-                    <strong>Two factor authentication confirmed and enabled successfully.</strong>
-                </p>
-
-                <p>
+            <template v-if="recoveryCodes.length > 0 && ! confirming">
+                <small>
                     Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.
-                </p>
+                </small>
 
-                <div v-for="code in pageProps.twoFactorRecoveryCodes" :key="code">
-                    <pre>{{ code }}</pre>
+                <div>
+                    <p v-for="code in recoveryCodes" :key="code">
+                        <small>
+                            <code>{{ code }}</code>
+                        </small>
+                    </p>
                 </div>
-
-                <Form v-slot="{ processing }" v-bind="RecoveryCodeController.store.form()">
-                    <button type="submit" :disabled="processing">Regenerate Recovery Codes</button>
-                </Form>
             </template>
         </template>
+
+        <ConfirmsPassword v-if="! twoFactorEnabled" @confirmed="enableTwoFactorAuthentication">
+            <button type="button" :disabled="enabling">
+                Enable
+            </button>
+        </ConfirmsPassword>
+
+        <div v-else>
+            <ConfirmsPassword v-if="confirming" @confirmed="confirmTwoFactorAuthentication">
+                <button type="button" :disabled="enabling || confirmationForm.processing">
+                    Confirm
+                </button>
+            </ConfirmsPassword>
+
+            <ConfirmsPassword v-if="recoveryCodes.length > 0 && ! confirming" @confirmed="regenerateRecoveryCodes">
+                <button type="button">
+                    Regenerate Recovery Codes
+                </button>
+            </ConfirmsPassword>
+
+            <ConfirmsPassword v-if="recoveryCodes.length === 0 && ! confirming" @confirmed="showRecoveryCodes">
+                <button type="button">
+                    Show Recovery Codes
+                </button>
+            </ConfirmsPassword>
+
+            <ConfirmsPassword v-if="confirming" @confirmed="disableTwoFactorAuthentication">
+                <button type="button" :disabled="disabling">
+                    Cancel
+                </button>
+            </ConfirmsPassword>
+
+            <ConfirmsPassword v-if="! confirming" @confirmed="disableTwoFactorAuthentication">
+                <button type="button" :disabled="disabling">
+                    Disable
+                </button>
+            </ConfirmsPassword>
+        </div>
     </section>
 </template>

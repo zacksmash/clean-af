@@ -5,13 +5,14 @@ import { logout } from '@/wayfinder/routes'
 
 import Profile from '@/pages/settings/Profile.vue'
 import Password from '@/pages/settings/Password.vue'
-// import TwoFactorAuth from '@/pages/settings/TwoFactorAuth.vue'
+import TwoFactorAuth from '@/pages/settings/TwoFactorAuth.vue'
 
 const user = computed(() => usePage().props.auth.user)
 const props = defineProps<{
     canUpdateProfile: boolean;
     canUpdatePassword?: boolean;
     canManageTwoFactorAuthentication?: boolean;
+    confirmsTwoFactorAuthentication?: boolean;
 }>()
 </script>
 <template>
@@ -48,10 +49,10 @@ const props = defineProps<{
             </section>
         </template>
 
-        <!-- <template v-if="props.canManageTwoFactorAuthentication">
+        <template v-if="props.canManageTwoFactorAuthentication">
             <hr>
 
-            <TwoFactorAuth/>
-        </template> -->
+            <TwoFactorAuth :requires-confirmation="props.confirmsTwoFactorAuthentication"/>
+        </template>
     </div>
 </template>
