@@ -1,3 +1,5 @@
+
+
 # clean af 🧼 - A Laravel starter kit that's clean af
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/zacksmash/clean-af.svg?style=flat-square)](https://packagist.org/packages/zacksmash/clean-af)
@@ -8,7 +10,7 @@
 - Minimal Tailwind styles, that can be completely removed in the app.css if you want.
 - Uses [Laravel Fortify](https://laravel.com/docs/12.x/fortify) to handle authentication, 2FA, etc.
 - Uses [Laravel Wayfinder](https://github.com/laravel/wayfinder) for routing
-- Intentially bare-bones so you can install whatever frontend you'd like without having to strip out existing components and structures.
+- Intentionally bare-bones so you can install whatever frontend you'd like without having to strip out existing components and structures.
 
 ## Screenshots
 ![Login Screen](https://github.com/zacksmash/assets/blob/main/clean-af/img/login-screen.png)
